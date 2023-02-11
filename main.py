@@ -5,9 +5,6 @@
 
 import pandas as panda
 
-def find_qdmax(df):
-    pass
-
 def run():
     data_2014 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2014.xlsx', index_col=0)
     data_2015 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2015.xlsx', index_col=0)
