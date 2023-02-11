@@ -39,8 +39,10 @@ def run():
     my_data.append(data_2018_df_verbrauch_max)
     my_data.append(data_2019_df_verbrauch_max)
 
-    Qdmax= max(my_data)
-    print(f"{Qdmax=}")
+    qdmax= max(my_data)
+
+    criteria_1 = 0.5 * qdmax
+    print(f"{criteria_1=}")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
