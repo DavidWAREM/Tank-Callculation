@@ -5,13 +5,14 @@
 
 import pandas as panda
 
+
 def run():
-    data_2014 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2014.xlsx', index_col=0)
-    data_2015 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2015.xlsx', index_col=0)
-    data_2016 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2016.xlsx', index_col=0)
-    data_2017 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2017.xlsx', index_col=0)
-    data_2018 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2018.xlsx', index_col=0)
-    data_2019 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2019.xlsx', index_col=0)
+    data_2014 = panda.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
+    data_2015 = panda.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
+    data_2016 = panda.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
+    data_2017 = panda.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
+    data_2018 = panda.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
+    data_2019 = panda.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
 
     data = list()
     data.append(data_2014)
@@ -40,6 +41,7 @@ def run():
 
     criteria_1 = 0.5 * qdmax
     print(f"{criteria_1=}")
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
