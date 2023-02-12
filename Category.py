@@ -2,6 +2,13 @@
 #Beginning Definition of daily amount of water, this will be later delited.
 V_equ = 500
 
+
+"""
+Category_2 calculates the additional amount of water requred for a case of a fire. 
+The calculation is based on three criteria: First the type of area, that is supplied
+ (residual, commercial or industrial), second the highest building in the area (number of floors),
+ and third the risk of fire spread. 
+"""
 def category_2():
     #Getting the first input for the callculation of the requred water amount for a fire event.
     #the while True checks, if the input is correct
@@ -30,11 +37,13 @@ def category_2():
             else:
                 break
 
+        #If the number of floors is below 4.
         if floors_number <= 3:
-            #
+            #Getting the riks of a fire spread
             spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
                                 "\nIf you do not know, ask the responsible fire department. ")
 
+            #The while funktion checks, if the input is correct.
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neather 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
@@ -51,6 +60,7 @@ def category_2():
             if spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 print("Wrong input spread risk!")
 
+        #If The number of floors is more than 3.
         else:
             spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
                                 "\nIf you do not know, ask the responsible fire department. ")
