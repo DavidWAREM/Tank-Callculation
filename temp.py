@@ -1,7 +1,48 @@
+import pandas as pd
 
-spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
-                            "\nIf you do not know, ask the responsible fire department. ")
+def category_3():
+    """
+    print("The following step will calculate criterion three. "
+          "Here, it is checked whether a minimum height of 0.5 meters"
+          " of water column was always present in the course of the given tank.")
 
-while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
-        spread_risk = input("This is neather 'small', 'medium', or 'high'."
-                            "\nPlease check the risk of fire spread and insert on of the three terms.")
+    #The following will ask the size of the tank from the user.
+    while True:
+        try:
+            length = int(input("Please insert the length of the tank. "))
+        except ValueError:
+            print("Wrong input.")
+            continue
+        else:
+            break
+
+    while True:
+        try:
+            width = int(input("Please insert the width of the tank. "))
+        except ValueError:
+            print("Wrong input.")
+            continue
+        else:
+            break
+
+    area = width * length
+    print(area)
+
+
+"""
+
+
+    filename = 'test.txt'
+
+    with open (filename) as file_object:
+        asdf = file_object.readlines()
+
+    data = ''
+    for line in asdf:
+        data += line.strip()
+
+    print(data)
+    print(len(data))
+
+
+category_3()

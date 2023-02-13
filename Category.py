@@ -16,7 +16,7 @@ def category_2():
         try:
             area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
         except ValueError:
-            print("Wrong Input, that is not one of the given options.")
+            print("Wrong input, that is not one of the given options.")
             continue
         else:
             break
