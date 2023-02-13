@@ -1,49 +1,46 @@
-
-#Beginning Definition of daily amount of water, this will be later delited.
+# Beginning Definition of daily amount of water, this will be later delited.
 V_equ = 500
 
-
 """
-Category_2 calculates the additional amount of water requred for a case of a fire. 
+Category_2 calculates the additional amount of water required for a case of a fire. 
 The calculation is based on three criteria: First the type of area, that is supplied
- (residual, commercial or industrial), second the highest building in the area (number of floors),
- and third the risk of fire spread. 
+(residual, commercial or industrial), second the highest building in the area (number of floors),
+and third the risk of fire spread (small, medium and high). 
 """
+
+
 def category_2():
-    #Getting the first input for the callculation of the requred water amount for a fire event.
-    #the while True checks, if the input is correct
+    # the while True checks, if the input is correct
+    print("Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?")
     while True:
         try:
-            area = int(input("Is the supplied area a residual (1), a comercial (2) or a industrial (3) area?"
-                 "\n Write the number: "))
+            area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
         except ValueError:
-            print("Wrong Input, that is not one of the given options."
-                  "\nPlease insert 1 for residual, 2 for comercial and 3 for industrial area.")
+            print("Wrong Input, that is not one of the given options.")
             continue
         else:
             break
 
     if area == 1:
-        #If the area is an Residual, this is the branche.
-        #The while True checks, is the input for the floor number is correct.
+        # If the area is a Residual, this is the branche.
+        # The while True checks, is the input for the floor number is correct.
+        print("What is the maximum number of floors in the area? ")
         while True:
             try:
-                floors_number = int(input("What is the maximum number"
-                              " of floors in the area? "))
+                floors_number = int(input("Please insert a number: "))
             except ValueError:
-                print("Wrong Input, that is not a number!"
-                      "\nPlease insert a number.")
+                print("Wrong input, this is not a number!")
                 continue
             else:
                 break
 
-        #If the number of floors is below 4.
+        # If the number of floors is below 4.
         if floors_number <= 3:
-            #Getting the riks of a fire spread
+            # Getting the risks of a fire spread
             spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
                                 "\nIf you do not know, ask the responsible fire department. ")
 
-            #The while funktion checks, if the input is correct.
+            # The while funktion checks, if the input is correct.
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neather 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
@@ -60,7 +57,7 @@ def category_2():
             if spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 print("Wrong input spread risk!")
 
-        #If The number of floors is more than 3.
+        # If The number of floors is more than 3.
         else:
             spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
                                 "\nIf you do not know, ask the responsible fire department. ")
@@ -79,14 +76,15 @@ def category_2():
                 print("hoch, high, Residual")
                 V_fire = 2 * 192
 
+    # If it is a commercial area, this is the branche.
     if area == 2:
+        # Again the while True checks, if the input is correct.
+        print("What is the maximum number of floors in the area? ")
         while True:
             try:
-                floors_number = int(input("What is the maximum number"
-                              " of floors in the area? "))
+                floors_number = int(input("Please insert a number: "))
             except ValueError:
-                print("Wrong Input, that is not a number!"
-                      "\nPlease insert a number.")
+                print("Wrong input, this is not a number!")
                 continue
             else:
                 break
@@ -130,6 +128,7 @@ def category_2():
             if spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 print("Wrong input spread risk!")
 
+    # If it is a industrial area, this is the branche.
     if area == 3:
 
         spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
@@ -151,9 +150,9 @@ def category_2():
         if spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
             print("Wrong input spread risk!")
 
-
     V_st = V_equ + V_fire
 
     print(V_st)
+
 
 category_2()
