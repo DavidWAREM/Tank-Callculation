@@ -9,12 +9,12 @@ date_consumption_max = data['Datum'][data['Verbrauch'] == data_verbrauch_max]
 #if date_consumption_max = ""
 #data["Datum"] = data[date_consumption_max].dt.month
 
-print(var)
+#print(var)
 
-
+#test
 
 print(data_verbrauch_max)
-#print(date_consumption_max)
+print(date_consumption_max)
 #print(date_consumption_max.month)
 #print(data['Datum'][data['Verbrauch'] == data_verbrauch_max])
 
