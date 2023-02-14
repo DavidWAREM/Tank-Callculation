@@ -1,3 +1,5 @@
+from typing import List
+
 import pandas as pd
 
 def category_3():
@@ -29,7 +31,7 @@ def category_3():
     print(area)
 
 
-"""
+
 
 
     filename = 'test.txt'
@@ -43,6 +45,37 @@ def category_3():
 
     print(data)
     print(len(data))
+"""
+
+Verbrauch_gesammt = pd.read_excel(r'data\Verbrauch_2019-hourly_Sampel Data.xlsx')
+Verbrauch = pd.DataFrame(Verbrauch_gesammt, columns=["Verbrauch"])
+
+data_Verbrauch = ""
+data_Verbrauch = Verbrauch.values.tolist()
+
+#print(data_Verbrauch)
+
+Inflow_gesammt = pd.read_excel(r'data\Inflow_2019-hourly_Sampel Data.xlsx')
+Inflow = pd.DataFrame(Inflow_gesammt, columns=["Inflow"])
+
+data_Inflow = ""
+data_Inflow = Inflow.values.tolist()
+
+#print(data_Inflow)
+
+for i in data_Inflow:
+    try:
+        int(i)
+    except ValueError:
+
+
+
+
+
+
+#for i, j in zip(list1, list2):
+#    result.append(i - j)
+#print(result)
 
 
 category_3()
