@@ -171,7 +171,7 @@ def category_2():
                 print("hoch, high, Commercial")
                 V_fire = 2 * 192
 
-    # If it is a industrial area, this is the branche.
+    # If it is an industrial area, this is the branche.
     if area == 3:
 
         spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
@@ -203,7 +203,7 @@ def category_3():
           "Here, it is checked whether a minimum height of 0.5 meters"
           " of water column was always present in the course of the given tank.")
 
-    #The following will ask the size of the tank from the user.
+    # The following will ask the size of the tank from the user.
     while True:
         try:
             length = int(input("Please insert the length of the tank. "))
