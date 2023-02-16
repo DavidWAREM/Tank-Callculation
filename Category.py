@@ -9,6 +9,17 @@ and third the risk of fire spread (small, medium and high).
 """
 
 
+import logging
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="log.log",
+    filemode="w",
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+
 def category_2():
     # the while True checks, if the input is correct
     print("Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?")
@@ -17,6 +28,7 @@ def category_2():
             area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
         except ValueError:
             print("Wrong input, that is not one of the given options.")
+            logging.exception("Wrong input area")
             continue
         else:
             break
