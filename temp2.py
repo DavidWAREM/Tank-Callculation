@@ -4,10 +4,13 @@ import numpy as np
 
 Verbrauch = pd.read_excel(r'data\Verbrauch_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
 df_Verbrauch = pd.DataFrame(Verbrauch, columns=['outflow'])
-#print(df)
+print(df_Verbrauch)
+
+print("-----")
 
 Verbrauch_list = df_Verbrauch.values.tolist()
 
+print(Verbrauch_list)
 
 Inflow = pd.read_excel(r'data\Inflow_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
 df_inflow = pd.DataFrame(Inflow, columns=['inflow'])
@@ -17,10 +20,12 @@ inflow_list = df_inflow.values.tolist()
 inflow_list1 = inflow_list[0]
 inflow_list2 = inflow_list1[0]
 
+print(inflow_list2)
+
 Verbrauch_list1 = Verbrauch_list[0]
 Verbrauch_list2 = Verbrauch_list1[0]
 
-item = Inflo
+
 
 """
 length = len(inflow_list)

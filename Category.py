@@ -14,7 +14,7 @@ import logging
 
 logging.basicConfig(
     level=logging.DEBUG,
-    filename="log.log",
+    filename="log_category.log",
     filemode="w",
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -28,7 +28,7 @@ def category_2():
             area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
         except ValueError:
             print("Wrong input, that is not one of the given options.")
-            logging.exception("Wrong input area")
+            logging.exception("User input for area is not a number.")
             continue
         else:
             break
@@ -36,11 +36,13 @@ def category_2():
     # Checks if the input is not 0
     while area == 0:
         print("Wrong input, that is not one of the given options.")
+        logging.error("User input for area == 0.")
         while True:
             try:
                 area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
             except ValueError:
                 print("Wrong input, that is not one of the given options.")
+                logging.exception("User input for area is not a number.")
                 continue
             else:
                 break
@@ -48,11 +50,13 @@ def category_2():
     # Checks if the input is not higher than 3
     while area >= 4:
         print("Wrong input, that is not one of the given options.")
+        logging.error("User input for area >= 4.")
         while True:
             try:
                 area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
             except ValueError:
                 print("Wrong input, that is not one of the given options.")
+                logging.exception("User input for area is not a number.")
                 continue
             else:
                 break
@@ -66,6 +70,7 @@ def category_2():
                 floors_number = int(input("Please insert a number: "))
             except ValueError:
                 print("Wrong input!")
+                logging.exception("User input for floor is not a number.")
                 continue
             else:
                 break
@@ -73,11 +78,13 @@ def category_2():
         # Checks if the floor number is not '0'.
         while floors_number == 0:
             print("Wrong input, if the floor number is '0', there would be no building.")
+            logging.error("User input for floor number == 0.")
             while True:
                 try:
                     floors_number = int(input("Please insert a number: "))
                 except ValueError:
                     print("Wrong input!")
+                    logging.exception("User input for floor number is not a number.")
                     continue
                 else:
                     break
@@ -92,6 +99,7 @@ def category_2():
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neither 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
+                logging.error("The input for the fire risk is neither small, medium or high.")
 
             if spread_risk == "small":
                 print("niedrig, small, Residual")
@@ -111,6 +119,7 @@ def category_2():
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neither 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
+                logging.error("The input for the fire risk is neither small, medium or high.")
 
             if spread_risk == "small":
                 print("hoch, small, Residual")
@@ -131,6 +140,7 @@ def category_2():
                 floors_number = int(input("Please insert a number: "))
             except ValueError:
                 print("Wrong input!")
+                logging.exception("User input for floor number is not a number.")
                 continue
             else:
                 break
@@ -138,11 +148,13 @@ def category_2():
         # Checks if the floor number is not '0'.
         while floors_number == 0:
             print("Wrong input, if the floor number is '0', there would be no building.")
+            logging.error("Input for floor number == 0.")
             while True:
                 try:
                     floors_number = int(input("Please insert a number: "))
                 except ValueError:
                     print("Wrong input!")
+                    logging.exception("User input for floor number is not a number.")
                     continue
                 else:
                     break
@@ -154,6 +166,7 @@ def category_2():
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neither 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
+                logging.error("The input for the fire risk is neither small, medium or high.")
 
             if spread_risk == "small":
                 print("niedrig, small, Commercial")
@@ -172,6 +185,7 @@ def category_2():
             while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
                 spread_risk = input("This is neither 'small', 'medium', or 'high'."
                                     "\nPlease check the risk of fire spread and insert on of the three terms. ")
+                logging.error("The input for the fire risk is neither small, medium or high.")
 
             if spread_risk == "small":
                 print("hoch, small, Commercial")
@@ -192,6 +206,7 @@ def category_2():
         while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
             spread_risk = input("This is neither 'small', 'medium', or 'high'."
                                 "\nPlease check the risk of fire spread and insert on of the three terms. ")
+            logging.error("The input for the fire risk is neither small, medium or high.")
 
         if spread_risk == "small":
             print("small, Industrial")
@@ -203,6 +218,18 @@ def category_2():
             print("high, Industrial")
             V_fire = 2 * 192
 
+    logging.info(f"The user input for the area is a {area}.")
+
+    while True:
+        try:
+            logging.info(f"The user input for the floor numbers is {floors_number}.")
+        except UnboundLocalError:
+            continue
+        else:
+            break
+
+    logging.info(f"The user input for the risk of a fire spread is {spread_risk}.")
+
 
     V_st = V_equ + V_fire
 
@@ -211,7 +238,7 @@ def category_2():
 
 def category_3():
 
-    print("The following step will calculate criterion three. "
+    print("The following step will calculate category three. "
           "Here, it is checked whether a minimum height of 0.5 meters"
           " of water column was always present in the course of the given tank.")
 
@@ -221,6 +248,7 @@ def category_3():
             length = int(input("Please insert the length of the tank. "))
         except ValueError:
             print("Wrong input.")
+            logging.exception("The input for the tank length is wrong.")
             continue
         else:
             break
@@ -230,6 +258,7 @@ def category_3():
             width = int(input("Please insert the width of the tank. "))
         except ValueError:
             print("Wrong input.")
+            logging.exception("The input for the tank width is wrong.")
             continue
         else:
             break
@@ -237,4 +266,9 @@ def category_3():
     area = width * length
     print(area)
 
+    logging.info(f"The input for the width is {width}.")
+    logging.info(f"The input for the length is {length}.")
+    logging.info(f"The calculated area for the tank is {area}.")
+
 category_2()
+category_3()

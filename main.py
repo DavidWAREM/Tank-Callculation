@@ -1,18 +1,27 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
 import pandas as panda
+import logging
+
+
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="log_main.log",
+    filemode="w",
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def run():
+
     data_2014 = panda.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
     data_2015 = panda.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
     data_2016 = panda.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
     data_2017 = panda.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
     data_2018 = panda.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
     data_2019 = panda.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
+    logging.info("The outflow data are properly loaded into the system.")
+
 
     data = list()
     data.append(data_2014)
@@ -38,13 +47,13 @@ def run():
     my_data.append(data_2019_df_verbrauch_max)
 
     qdmax= max(my_data)
+    logging.info(f"The max. amount of outflow is {qdmax}.")
 
     criteria_1 = 0.5 * qdmax
     print(f"{criteria_1=}")
+    logging.info(f"The category 1 is {criteria_1}.")
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     run()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
