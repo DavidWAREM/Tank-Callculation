@@ -1,16 +1,7 @@
-import pandas as panda
 import logging
-
-
-
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename="log_main.log",
-    filemode="w",
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
-
+import pandas as panda
+from fun import *
+from Category import *
 
 def run():
 
@@ -53,7 +44,15 @@ def run():
     print(f"{criteria_1=}")
     logging.info(f"The category 1 is {criteria_1}.")
 
+    return qdmax
+
+
+
+
 
 if __name__ == '__main__':
+    start_logging()
     run()
+    category_2()
+    category_3()
 

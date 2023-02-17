@@ -1,3 +1,9 @@
+from fun import *
+import pandas as pd
+from main import run
+
+
+
 # Beginning Definition of daily amount of water, this will be later delited.
 V_equ = 500
 
@@ -9,18 +15,15 @@ and third the risk of fire spread (small, medium and high).
 """
 
 
-import logging
+def category_1():
 
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename="log_category.log",
-    filemode="w",
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+    criteria_1 = 0.5 * qdmax
+    print(f"{criteria_1=}")
+    logging.info(f"The category 1 is {criteria_1}.")
 
 
 def category_2():
+
     # the while True checks, if the input is correct
     print("Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?")
     while True:
@@ -263,12 +266,63 @@ def category_3():
         else:
             break
 
-    area = width * length
-    print(area)
+    floor_area = width * length
+    print(floor_area)
 
     logging.info(f"The input for the width is {width}.")
     logging.info(f"The input for the length is {length}.")
-    logging.info(f"The calculated area for the tank is {area}.")
+    logging.info(f"The calculated area for the tank is {floor_area}.")
 
-category_2()
-category_3()
+    # Here the hourly inflow and outflow data will be imported to python.
+    df_outflow_2018 = pd.read_excel('data\Verbrauch_2018_hourly_Sample_Data.xlsx', sheet_name='temp')
+    df_outflow_2019 = pd.read_excel('data\Verbrauch_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
+    logging.info("The hourly outflow data are properly loaded into the system.")
+
+    df_inflow_2018 = pd.read_excel('data\Inflow_2018_hourly_Sample_Data.xlsx', sheet_name='temp')
+    df_inflow_2019 = pd.read_excel('data\Inflow_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
+    logging.info("The hourly inflow data are properly loaded into the system.")
+
+    # The starting point of the water hight (df) and the water_column_counter is 0.
+    df = 0
+    water_column_counter = 0
+
+    # The for function will work with every row of the data. At every moment it will
+    # calculate the water hight. If the water hight is below 0.5 meters, there will be a massage
+    # and a 1 will be added to the water column counter.
+    for index, row in df_inflow_2018.iterrows():
+        df_1 = df_inflow_2018.at[index, "inflow"]
+        df_2 = df_outflow_2018.at[index, "outflow"]
+        df = df_1 - df_2 + df
+        water_column = df / floor_area
+        if water_column <= 0.5:
+            print("At the moment {} was the water column below 0.5 meter.".format(df_inflow_2019.at[index, "date"]))
+            print("The water column had a height of {} meter.".format(water_column))
+            print("The water had a volume of {} liters.".format(df))
+            water_column_counter = water_column_counter + 1
+            logging.info("At the moment {} the water column was to small"
+                         " and had a height of {}.".format(df_inflow_2019.at[index, "date"], water_column))
+
+    for index, row in df_inflow_2019.iterrows():
+        df_1 = df_inflow_2019.at[index, "inflow"]
+        df_2 = df_outflow_2019.at[index, "outflow"]
+        df = df_1 - df_2 + df
+        water_column = df / floor_area
+        if water_column <= 0.5:
+            print("At the moment {} was the water column below 0.5 meter.".format(df_inflow_2019.at[index, "date"]))
+            print("The water column had a hight of {} meter.".format(water_column))
+            print("The water had a volume of {} liters.".format(df))
+            water_column_counter = water_column_counter + 1
+            logging.info("At the moment {} the water column was to small"
+                         " and had a height of {}.".format(df_inflow_2018.at[index, "date"], water_column))
+
+    # If the water colum counter is 0, and therefore the water column hight was always
+    # above 0.5 meter, this massage will be showen to the user.
+    if water_column_counter <= 1:
+        print("The water column is always above 0.5 meters.")
+        logging.info("Category 3 is fulfilled, the water height was never below 0.5 meters.")
+
+
+
+#category_2()
+
+#category_3()
