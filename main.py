@@ -5,6 +5,7 @@ from Category import *
 
 if __name__ == '__main__':
     start_logging()
-    category_1()
-    category_2()
+    tank_data()
+#    category_1()
+#    category_2()
     category_3()

@@ -1,7 +1,9 @@
+import logging
+
 from fun import *
 import pandas as pd
-from main import run
 
+# from main import run
 
 
 # Beginning Definition of daily amount of water, this will be later delited.
@@ -14,15 +16,60 @@ The calculation is based on three criteria: First the type of area, that is supp
 and third the risk of fire spread (small, medium and high). 
 """
 
+def tank_data():
+    print("The algorythm will calculate, if the given tank is big enough for the given outflow data, regarding the"
+          "German law for water supply facilities.")
+    print("\nFirst you need to name the size of your tank.")
+
+    # The following will ask the size of the tank from the user.
+    while True:
+        try:
+            length = int(input("Please insert the length of the tank in meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank length is wrong.")
+            continue
+        else:
+            break
+
+    while True:
+        try:
+            width = int(input("Please insert the width of the tank in meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank width is wrong.")
+            continue
+        else:
+            break
+
+    floor_area = width * length
+
+    while True:
+        try:
+            volume = int(input("Please insert the volume of the tank in cubic meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank volume is wrong.")
+            continue
+        else:
+            break
+
+    logging.info(f"The input for the width is {width}.")
+    logging.info(f"The input for the length is {length}.")
+    logging.info(f"The calculated area for the tank is {floor_area} [m^2].")
+    logging.info(f"The input for the volume of the tank is {volume}.")
+
+    return floor_area
+
 
 def category_1():
     # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years 
-    data_2014 = panda.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
-    data_2015 = panda.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
-    data_2016 = panda.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
-    data_2017 = panda.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
-    data_2018 = panda.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
-    data_2019 = panda.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
+    data_2014 = pd.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
+    data_2015 = pd.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
+    data_2016 = pd.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
+    data_2017 = pd.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
+    data_2018 = pd.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
+    data_2019 = pd.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
     logging.info("The outflow data are properly loaded into the system.")
 
     data = list()
@@ -32,7 +79,7 @@ def category_1():
     data.append(data_2017)
     data.append(data_2018)
     data.append(data_2019)
-  
+
     # The Excel Sheets have two Columns- Datum and Verbrauch
     # Now we shall find the Maximum Value from Verbrauch Column for each year
     data_2014_df_verbrauch_max = data_2014['Verbrauch'].max()
@@ -41,7 +88,7 @@ def category_1():
     data_2017_df_verbrauch_max = data_2017['Verbrauch'].max()
     data_2018_df_verbrauch_max = data_2018['Verbrauch'].max()
     data_2019_df_verbrauch_max = data_2019['Verbrauch'].max()
- 
+
     # Create an Array of list Containing all Maximum Values from above
     my_data = list()
     my_data.append(data_2014_df_verbrauch_max)
@@ -50,19 +97,20 @@ def category_1():
     my_data.append(data_2017_df_verbrauch_max)
     my_data.append(data_2018_df_verbrauch_max)
     my_data.append(data_2019_df_verbrauch_max)
-    
+
     # Find Maximum Value from all years for Discharge
-    qdmax= max(my_data)
+    qdmax = max(my_data)
     logging.info(f"The max. amount of outflow is {qdmax}.")
-   
+
     # First Criteria
+    # The tank should have the volume of the water needed on
+    # day with the highest consumption for the howl day.
     criteria_1 = 0.5 * qdmax
     print(f"{criteria_1=}")
     logging.info(f"The category 1 is {criteria_1}.")
 
 
 def category_2():
-
     # the while True checks, if the input is correct
     print("Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?")
     while True:
@@ -272,45 +320,17 @@ def category_2():
 
     logging.info(f"The user input for the risk of a fire spread is {spread_risk}.")
 
-
     V_st = V_equ + V_fire
 
     print(V_st)
 
 
 def category_3():
-
     print("The following step will calculate category three. "
           "Here, it is checked whether a minimum height of 0.5 meters"
           " of water column was always present in the course of the given tank.")
 
-    # The following will ask the size of the tank from the user.
-    while True:
-        try:
-            length = int(input("Please insert the length of the tank. "))
-        except ValueError:
-            print("Wrong input.")
-            logging.exception("The input for the tank length is wrong.")
-            continue
-        else:
-            break
 
-    while True:
-        try:
-            width = int(input("Please insert the width of the tank. "))
-        except ValueError:
-            print("Wrong input.")
-            logging.exception("The input for the tank width is wrong.")
-            continue
-        else:
-            break
-
-    floor_area = width * length
-    print(floor_area)
-
-    logging.info(f"The input for the width is {width}.")
-    logging.info(f"The input for the length is {length}.")
-    logging.info(f"The calculated area for the tank is {floor_area}.")
 
     # Here the hourly inflow and outflow data will be imported to python.
     df_outflow_2018 = pd.read_excel('data\Verbrauch_2018_hourly_Sample_Data.xlsx', sheet_name='temp')
@@ -326,7 +346,7 @@ def category_3():
     water_column_counter = 0
 
     # The for function will work with every row of the data. At every moment it will
-    # calculate the water hight. If the water hight is below 0.5 meters, there will be a massage
+    # calculate the water height. If the water height is below 0.5 meters, there will be a massage
     # and a 1 will be added to the water column counter.
     for index, row in df_inflow_2018.iterrows():
         df_1 = df_inflow_2018.at[index, "inflow"]
@@ -334,12 +354,12 @@ def category_3():
         df = df_1 - df_2 + df
         water_column = df / floor_area
         if water_column <= 0.5:
-            print("At the moment {} was the water column below 0.5 meter.".format(df_inflow_2019.at[index, "date"]))
+            print("At the moment {} was the water column below 0.5 meter.".format(df_inflow_2018.at[index, "date"]))
             print("The water column had a height of {} meter.".format(water_column))
-            print("The water had a volume of {} liters.".format(df))
+            print("The water had a volume of {} m^3.".format(df))
             water_column_counter = water_column_counter + 1
-            logging.info("At the moment {} the water column was to small"
-                         " and had a height of {}.".format(df_inflow_2019.at[index, "date"], water_column))
+            logging.debug("At the moment {} the water column was to small"
+                          " and had a height of {}.".format(df_inflow_2018.at[index, "date"], water_column))
 
     for index, row in df_inflow_2019.iterrows():
         df_1 = df_inflow_2019.at[index, "inflow"]
@@ -348,20 +368,14 @@ def category_3():
         water_column = df / floor_area
         if water_column <= 0.5:
             print("At the moment {} was the water column below 0.5 meter.".format(df_inflow_2019.at[index, "date"]))
-            print("The water column had a hight of {} meter.".format(water_column))
-            print("The water had a volume of {} liters.".format(df))
+            print("The water column had a height of {} meter.".format(water_column))
+            print("The water had a volume of {} m^3.".format(df))
             water_column_counter = water_column_counter + 1
             logging.info("At the moment {} the water column was to small"
-                         " and had a height of {}.".format(df_inflow_2018.at[index, "date"], water_column))
+                         " and had a height of {}.".format(df_inflow_2019.at[index, "date"], water_column))
 
-    # If the water colum counter is 0, and therefore the water column hight was always
-    # above 0.5 meter, this massage will be showen to the user.
+    # If the water colum counter is 0, and therefore the water column height was always
+    # above 0.5 meter, this massage will be shown to the user.
     if water_column_counter <= 1:
         print("The water column is always above 0.5 meters.")
         logging.info("Category 3 is fulfilled, the water height was never below 0.5 meters.")
-
-
-
-#category_2()
-
-#category_3()

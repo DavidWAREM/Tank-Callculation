@@ -2,7 +2,7 @@ import pandas as panda
 import numpy as np
 from datetime import datetime as dt
 
-data = panda.read_excel(r'C:\Users\lusti\Documents\GitHub\Tank-Callculation\data\Verbrauch_2014.xlsx')
+data = panda.read_excel(r'data\Verbrauch_2014.xlsx')
 #df = panda.DataFrame(data)
 #print(data)
 
