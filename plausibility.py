@@ -1,10 +1,13 @@
 import pandas as panda
 import numpy as np
+from PlotData import plot_data
 from datetime import datetime as dt
 
 data = panda.read_excel(r'data\Verbrauch_2014.xlsx')
 #df = panda.DataFrame(data)
 #print(data)
+
+plot_data(data['Datum'],data['Verbrauch'],"Daily Consumption",1,"blue")
 
 data_verbrauch_max = data['Verbrauch'].max()
 
