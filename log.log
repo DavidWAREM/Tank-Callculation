@@ -1,0 +1,15 @@
+2023-02-24 18:29:28,222 - INFO - The input for the length is 1.
+2023-02-24 18:29:28,797 - INFO - The input for the width is 1.
+2023-02-24 18:29:28,797 - INFO - The calculated area for the tank is 1 [m^2].
+2023-02-24 18:29:29,834 - INFO - The input for the volume of the tank is 1.
+2023-02-24 18:29:30,209 - INFO - The outflow data are properly loaded into the system.
+2023-02-24 18:29:30,209 - INFO - The max. amount of outflow is 680.
+2023-02-24 18:29:30,209 - INFO - The category 1 is 340.0.
+2023-02-24 18:29:31,573 - INFO - The user input for floors number is 1.
+2023-02-24 18:29:32,529 - INFO - The user input for the area is a 1.
+2023-02-24 18:29:32,529 - INFO - The user input for the risk of a fire spread is small.
+2023-02-24 18:29:32,927 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-24 18:29:33,377 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-24 18:29:33,757 - INFO - The q_fluc is 525 m^3.
+2023-02-24 18:29:33,757 - INFO - The q_min is 0.5 m^3.
+2023-02-24 18:29:33,757 - INFO - The criteria_3 is 525.5 m^3.
