@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Category_TEMP.py" afterDir="false" />
+    <list default="true" id="64112031-b9f0-4cc5-9723-408c9d274a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Category.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2M3TjGrPIFLMii3VQuGk461toAr" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectId" id="2MC4PVkazU34PG4YNTCWuWmCvaS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,22 +29,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mueda/Documents/GitHub/Tank-Callculation"
+    "last_opened_file_path": "C:/Users/mueda/anaconda3/Scripts/conda.exe"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\mueda\Documents\GitHub\Tank-Callculation" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="" />
-      <created>1676995399748</created>
+      <changelist id="64112031-b9f0-4cc5-9723-408c9d274a37" name="Changes" comment="" />
+      <created>1677258207018</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676995399748</updated>
+      <updated>1677258207018</updated>
     </task>
     <servers />
   </component>
