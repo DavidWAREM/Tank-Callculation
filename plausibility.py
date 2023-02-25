@@ -4,10 +4,27 @@ from PlotData import plot_data
 from datetime import datetime as dt
 
 data = panda.read_excel(r'data\Verbrauch_2014.xlsx')
-#df = panda.DataFrame(data)
-#print(data)
 
-plot_data(data['Datum'],data['Verbrauch'],"Daily Consumption",1,"blue")
+
+# df = panda.DataFrame(data)
+# print(data)
+def plausibility(date_series=panda.Series(), consumption_series=panda.Series()):
+    """
+
+    :param date_series:
+    :param consumption_series:
+    :return:
+    """
+    plot_data(data['Datum'], data['Verbrauch'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]", 1,
+              "blue")
+    data_verbrauch_max = data['Verbrauch'].max()
+    date_consumption_max = data['Datum'][data['Verbrauch'] == data_verbrauch_max]
+    print(date_consumption_max.to_string(index=False))
+
+
+plausibility(data['Datum'], data['Verbrauch'])
+
+"""plot_data(data['Datum'],data['Verbrauch'],"Daily Consumption",1,"blue")
 
 data_verbrauch_max = data['Verbrauch'].max()
 
@@ -42,5 +59,4 @@ else:
 #print(panda.to_datetime(dates).month)
 #print(date_consumption_max.month)
 #print (data['Datum'][data['Verbrauch'] == data_verbrauch_max])
-
-
+"""
