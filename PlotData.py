@@ -1,20 +1,23 @@
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 import pandas as panda
 
-def plot_data (date=panda.Series(), consumption=panda.Series(), title="",
-                   x_label="", y_label="", size=1, color="blue"):
+
+def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
+              x_label="", y_label="", size=10, color="navy"):
     """
 
-    :param time_series:
-    :param q_series:
+    :param date:
+    :param consumption:
     :param title:
+    :param x_label:
+    :param y_label:
     :param size:
     :param color:
     :return:
     """
 
     # create figure
-    fig, axes = plot.subplots(figsize=(11, 6))
+    fig, axes = plt.subplots(figsize=(15, 9))
 
     # make blue-marker scatter plot (circles with size 4)
     axes.scatter(x=date, y=consumption,
@@ -24,8 +27,8 @@ def plot_data (date=panda.Series(), consumption=panda.Series(), title="",
     axes.set(xlabel=x_label, ylabel=y_label, title=title)
 
     # show grid and set plot limits
-    plot.xlim(date.min(), date.max())
-    plot.grid()
+    plt.xlim(date.min(), date.max())
+    plt.grid()
 
     # show plot
-    plot.show()
+    plt.show()
