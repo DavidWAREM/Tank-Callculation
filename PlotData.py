@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as panda
+import numpy as np
 
 
 def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
@@ -29,6 +30,11 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
     # show grid and set plot limits
     plt.xlim(date.min(), date.max())
     plt.grid()
+
+    """y_max = consumption.max()
+    x_max_pos = date(consumption == y_max)
+    x_max = date[x_max_pos]
+    axes.annotate('Qdmax', xy=(x_max, y_max), xytext=(x_max, y_max), arrowprops=dict(facecolor='black') )"""
 
     # show plot
     plt.show()
