@@ -4,7 +4,7 @@ from PlotData import plot_data
 from fun import *
 
 
-def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), data="", year=""):
+def check_plausibility(data="", year=""):
     """
 
     :param date_series:

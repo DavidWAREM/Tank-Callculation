@@ -1,22 +1,31 @@
-2023-02-26 00:37:29,145 - INFO - The user input for 2014 =! yes.
-2023-02-26 00:37:29,150 - INFO - The raw 106 was a wrong value and was extinguished.
-2023-02-26 00:37:29,154 - INFO - The raw 105 was a wrong value and was extinguished.
-2023-02-26 00:37:29,158 - INFO - The raw 104 was a wrong value and was extinguished.
-2023-02-26 00:37:29,435 - INFO - The plausibility check for the consumption in 2014 successfully ran.
-2023-02-26 00:37:30,524 - INFO - The user input for 2015 =! yes.
-2023-02-26 00:37:30,653 - INFO - The plausibility check for the consumption in 2015 successfully ran.
-2023-02-26 00:37:31,385 - INFO - The user input for 2016 =! yes.
-2023-02-26 00:37:31,502 - INFO - The plausibility check for the consumption in 2016 successfully ran.
-2023-02-26 00:37:32,174 - INFO - The user input for 2017 =! yes.
-2023-02-26 00:37:32,325 - INFO - The plausibility check for the consumption in 2017 successfully ran.
-2023-02-26 00:37:33,105 - INFO - The user input for 2018 =! yes.
-2023-02-26 00:37:33,235 - INFO - The plausibility check for the consumption in 2018 successfully ran.
-2023-02-26 00:37:34,035 - INFO - The user input for 2019 =! yes.
-2023-02-26 00:37:34,167 - INFO - The plausibility check for the consumption in 2019 successfully ran.
-2023-02-26 00:37:38,095 - INFO - The user input for the length is 10.
-2023-02-26 00:37:40,884 - INFO - The user input for the width is 50.
-2023-02-26 00:37:40,884 - INFO - The calculated area for the tank is 500 m^2.
-2023-02-26 00:37:48,745 - INFO - The user input for the volume of the tank is 3000.
-2023-02-26 00:37:49,157 - INFO - The outflow data are properly loaded into the system.
-2023-02-26 00:37:49,158 - INFO - The max. amount of outflow is 239.
-2023-02-26 00:37:49,158 - INFO - The category 1 is 119.5.
+2023-02-26 00:53:23,794 - INFO - The user input for 2014 =! yes.
+2023-02-26 00:53:23,802 - INFO - The raw 106 was a wrong value and was extinguished.
+2023-02-26 00:53:23,813 - INFO - The raw 105 was a wrong value and was extinguished.
+2023-02-26 00:53:23,819 - INFO - The raw 104 was a wrong value and was extinguished.
+2023-02-26 00:53:24,152 - INFO - The plausibility check for the consumption in 2014 successfully ran.
+2023-02-26 00:53:25,553 - INFO - The user input for 2015 =! yes.
+2023-02-26 00:53:25,681 - INFO - The plausibility check for the consumption in 2015 successfully ran.
+2023-02-26 00:53:26,493 - INFO - The user input for 2016 =! yes.
+2023-02-26 00:53:26,632 - INFO - The plausibility check for the consumption in 2016 successfully ran.
+2023-02-26 00:53:27,223 - INFO - The user input for 2017 =! yes.
+2023-02-26 00:53:27,348 - INFO - The plausibility check for the consumption in 2017 successfully ran.
+2023-02-26 00:53:28,073 - INFO - The user input for 2018 =! yes.
+2023-02-26 00:53:28,209 - INFO - The plausibility check for the consumption in 2018 successfully ran.
+2023-02-26 00:53:29,103 - INFO - The user input for 2019 =! yes.
+2023-02-26 00:53:29,219 - INFO - The plausibility check for the consumption in 2019 successfully ran.
+2023-02-26 00:53:41,433 - INFO - The user input for the length is 10.
+2023-02-26 00:53:42,363 - INFO - The user input for the width is 10.
+2023-02-26 00:53:42,363 - INFO - The calculated area for the tank is 100 m^2.
+2023-02-26 00:53:43,853 - INFO - The user input for the volume of the tank is 1000.
+2023-02-26 00:53:44,294 - INFO - The outflow data are properly loaded into the system.
+2023-02-26 00:53:44,296 - INFO - The max. amount of outflow is 239.
+2023-02-26 00:53:44,296 - INFO - The category 1 is 119.5.
+2023-02-26 00:53:47,522 - INFO - The user input for floors number is 1.
+2023-02-26 00:53:50,163 - INFO - The user input for the area is a 1.
+2023-02-26 00:53:50,163 - INFO - The user input for the risk of a fire spread is small.
+2023-02-26 00:53:52,482 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-26 00:53:54,846 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-26 00:53:56,954 - INFO - The q_fluc is 527 m^3.
+2023-02-26 00:53:56,954 - INFO - The q_min is 50.0 m^3.
+2023-02-26 00:53:56,954 - INFO - The criteria_3 is 577.0 m^3.
+2023-02-26 00:53:56,955 - INFO - The given tank is big enough.
