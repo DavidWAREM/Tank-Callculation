@@ -1,0 +1,5 @@
+2023-02-25 21:31:56,927 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-25 21:31:59,550 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-25 21:32:02,212 - INFO - The q_fluc is 527 m^3.
+2023-02-25 21:32:02,212 - INFO - The q_min is 0.0 m^3.
+2023-02-25 21:32:02,212 - INFO - The criteria_3 is 527.0 m^3.

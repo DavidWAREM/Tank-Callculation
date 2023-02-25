@@ -1,48 +1,28 @@
-# This is a sample Python script.
+import pandas as pd
+from plausibility import check_plausibility
+from fun import *
+from Category import Tank
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#Import raw data from the Excel sheets for each year
+data_2014 = pd.read_excel(r'data\Consumption_2014.xlsx')
+data_2015 = pd.read_excel(r'data\Consumption_2015.xlsx')
+data_2016 = pd.read_excel(r'data\Consumption_2016.xlsx')
+data_2017 = pd.read_excel(r'data\Consumption_2017.xlsx')
+data_2018 = pd.read_excel(r'data\Consumption_2018.xlsx')
+data_2019 = pd.read_excel(r'data\Consumption_2019.xlsx')
 
-import pandas as panda
+check_plausibility(data_2014['Datum'], data_2014['Verbrauch'],data_2014,"2014")
+check_plausibility(data_2015['Datum'], data_2015['Verbrauch'],data_2015,"2015")
+check_plausibility(data_2016['Datum'], data_2016['Verbrauch'],data_2016,"2016")
+check_plausibility(data_2017['Datum'], data_2017['Verbrauch'],data_2017,"2017")
+check_plausibility(data_2018['Datum'], data_2018['Verbrauch'],data_2018,"2018")
+check_plausibility(data_2019['Datum'], data_2019['Verbrauch'],data_2019,"2019")
 
-def run():
-    data_2014 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2014.xlsx', index_col=0)
-    data_2015 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2015.xlsx', index_col=0)
-    data_2016 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2016.xlsx', index_col=0)
-    data_2017 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2017.xlsx', index_col=0)
-    data_2018 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2018.xlsx', index_col=0)
-    data_2019 = panda.read_excel(r'D:\uni_stuttgart\python\pycharmProjects\waterTank\data\Verbrauch_2019.xlsx', index_col=0)
-
-    data = list()
-    data.append(data_2014)
-    data.append(data_2015)
-    data.append(data_2016)
-    data.append(data_2017)
-    data.append(data_2018)
-    data.append(data_2019)
-
-    data_2014_df_verbrauch_max = data_2014['Verbrauch'].max()
-    data_2015_df_verbrauch_max = data_2015['Verbrauch'].max()
-    data_2016_df_verbrauch_max = data_2016['Verbrauch'].max()
-    data_2017_df_verbrauch_max = data_2017['Verbrauch'].max()
-    data_2018_df_verbrauch_max = data_2018['Verbrauch'].max()
-    data_2019_df_verbrauch_max = data_2019['Verbrauch'].max()
-
-    my_data = list()
-    my_data.append(data_2014_df_verbrauch_max)
-    my_data.append(data_2015_df_verbrauch_max)
-    my_data.append(data_2016_df_verbrauch_max)
-    my_data.append(data_2017_df_verbrauch_max)
-    my_data.append(data_2018_df_verbrauch_max)
-    my_data.append(data_2019_df_verbrauch_max)
-
-    qdmax= max(my_data)
-
-    criteria_1 = 0.5 * qdmax
-    print(f"{criteria_1=}")
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    run()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    start_logging()
+    my_tank = Tank()
+#    my_tank.tank_data()
+#    my_tank.category_1()
+#    my_tank.category_2()
+    my_tank.category_3()
+#    my_tank.final_calculation()
