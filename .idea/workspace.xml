@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="plausibility and plot finished">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Category.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2014.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2015.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2016.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2017.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2018.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2019.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -105,12 +105,12 @@ class Tank:
 
     def category_1(self):
         # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
-        data_2014 = pd.read_excel(r'data\\Verbrauch_2014.xlsx')
-        data_2015 = pd.read_excel(r'data\\Verbrauch_2015.xlsx')
-        data_2016 = pd.read_excel(r'data\\Verbrauch_2016.xlsx')
-        data_2017 = pd.read_excel(r'data\\Verbrauch_2017.xlsx')
-        data_2018 = pd.read_excel(r'data\\Verbrauch_2018.xlsx')
-        data_2019 = pd.read_excel(r'data\\Verbrauch_2019.xlsx')
+        data_2014 = pd.read_excel(r'data\\Plausible_Consumption_2014.xlsx')
+        data_2015 = pd.read_excel(r'data\\Plausible_Consumption_2015.xlsx')
+        data_2016 = pd.read_excel(r'data\\Plausible_Consumption_2016.xlsx')
+        data_2017 = pd.read_excel(r'data\\Plausible_Consumption_2017.xlsx')
+        data_2018 = pd.read_excel(r'data\\Plausible_Consumption_2018.xlsx')
+        data_2019 = pd.read_excel(r'data\\Plausible_Consumption_2019.xlsx')
         logging.info("The outflow data are properly loaded into the system.")
 
         data = list()
@@ -121,14 +121,14 @@ class Tank:
         data.append(data_2018)
         data.append(data_2019)
 
-        # The Excel Sheets have two Columns - Datum and Verbrauch
-        # Now we shall find the Maximum Value from Verbrauch Column for each year
-        data_2014_df_verbrauch_max = data_2014['Verbrauch'].max()
-        data_2015_df_verbrauch_max = data_2015['Verbrauch'].max()
-        data_2016_df_verbrauch_max = data_2016['Verbrauch'].max()
-        data_2017_df_verbrauch_max = data_2017['Verbrauch'].max()
-        data_2018_df_verbrauch_max = data_2018['Verbrauch'].max()
-        data_2019_df_verbrauch_max = data_2019['Verbrauch'].max()
+        # The Excel Sheets have two Columns - Date and Consumption
+        # Now we shall find the Maximum Value from Consumption Column for each year
+        data_2014_df_verbrauch_max = data_2014['Consumption'].max()
+        data_2015_df_verbrauch_max = data_2015['Consumption'].max()
+        data_2016_df_verbrauch_max = data_2016['Consumption'].max()
+        data_2017_df_verbrauch_max = data_2017['Consumption'].max()
+        data_2018_df_verbrauch_max = data_2018['Consumption'].max()
+        data_2019_df_verbrauch_max = data_2019['Consumption'].max()
 
         # Create an Array of list Containing all Maximum Values from above
         my_data = list()
