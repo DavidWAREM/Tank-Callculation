@@ -1,0 +1,126 @@
+Index: Category.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Category.py b/Category.py
+--- a/Category.py	
++++ b/Category.py	
+@@ -105,12 +105,12 @@
+ 
+     def category_1(self):
+         # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
+-        data_2014 = pd.read_excel(r'data\\Verbrauch_2014.xlsx')
+-        data_2015 = pd.read_excel(r'data\\Verbrauch_2015.xlsx')
+-        data_2016 = pd.read_excel(r'data\\Verbrauch_2016.xlsx')
+-        data_2017 = pd.read_excel(r'data\\Verbrauch_2017.xlsx')
+-        data_2018 = pd.read_excel(r'data\\Verbrauch_2018.xlsx')
+-        data_2019 = pd.read_excel(r'data\\Verbrauch_2019.xlsx')
++        data_2014 = pd.read_excel(r'data\\Plausible_Consumption_2014.xlsx')
++        data_2015 = pd.read_excel(r'data\\Plausible_Consumption_2015.xlsx')
++        data_2016 = pd.read_excel(r'data\\Plausible_Consumption_2016.xlsx')
++        data_2017 = pd.read_excel(r'data\\Plausible_Consumption_2017.xlsx')
++        data_2018 = pd.read_excel(r'data\\Plausible_Consumption_2018.xlsx')
++        data_2019 = pd.read_excel(r'data\\Plausible_Consumption_2019.xlsx')
+         logging.info("The outflow data are properly loaded into the system.")
+ 
+         data = list()
+@@ -121,14 +121,14 @@
+         data.append(data_2018)
+         data.append(data_2019)
+ 
+-        # The Excel Sheets have two Columns - Datum and Verbrauch
+-        # Now we shall find the Maximum Value from Verbrauch Column for each year
+-        data_2014_df_verbrauch_max = data_2014['Verbrauch'].max()
+-        data_2015_df_verbrauch_max = data_2015['Verbrauch'].max()
+-        data_2016_df_verbrauch_max = data_2016['Verbrauch'].max()
+-        data_2017_df_verbrauch_max = data_2017['Verbrauch'].max()
+-        data_2018_df_verbrauch_max = data_2018['Verbrauch'].max()
+-        data_2019_df_verbrauch_max = data_2019['Verbrauch'].max()
++        # The Excel Sheets have two Columns - Date and Consumption
++        # Now we shall find the Maximum Value from Consumption Column for each year
++        data_2014_df_verbrauch_max = data_2014['Consumption'].max()
++        data_2015_df_verbrauch_max = data_2015['Consumption'].max()
++        data_2016_df_verbrauch_max = data_2016['Consumption'].max()
++        data_2017_df_verbrauch_max = data_2017['Consumption'].max()
++        data_2018_df_verbrauch_max = data_2018['Consumption'].max()
++        data_2019_df_verbrauch_max = data_2019['Consumption'].max()
+ 
+         # Create an Array of list Containing all Maximum Values from above
+         my_data = list()
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	
++++ b/main.py	
+@@ -16,12 +16,12 @@
+ 
+ if __name__ == '__main__':
+     start_logging()
+-    check_plausibility(data_2014['Datum'], data_2014['Verbrauch'], data_2014, "2014")
+-    check_plausibility(data_2015['Datum'], data_2015['Verbrauch'], data_2015, "2015")
+-    check_plausibility(data_2016['Datum'], data_2016['Verbrauch'], data_2016, "2016")
+-    check_plausibility(data_2017['Datum'], data_2017['Verbrauch'], data_2017, "2017")
+-    check_plausibility(data_2018['Datum'], data_2018['Verbrauch'], data_2018, "2018")
+-    check_plausibility(data_2019['Datum'], data_2019['Verbrauch'], data_2019, "2019")
++    check_plausibility(data_2014['Date'], data_2014['Consumption'], data_2014, "2014")
++    check_plausibility(data_2015['Date'], data_2015['Consumption'], data_2015, "2015")
++    check_plausibility(data_2016['Date'], data_2016['Consumption'], data_2016, "2016")
++    check_plausibility(data_2017['Date'], data_2017['Consumption'], data_2017, "2017")
++    check_plausibility(data_2018['Date'], data_2018['Consumption'], data_2018, "2018")
++    check_plausibility(data_2019['Date'], data_2019['Consumption'], data_2019, "2019")
+     my_tank = Tank()
+     my_tank.tank_data()
+     my_tank.category_1()
+Index: log.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/log.log b/log.log
+--- a/log.log	
++++ b/log.log	
+@@ -1,5 +1,20 @@
+-2023-02-25 22:53:24,158 - INFO - The hourly outflow data are properly loaded into the system.
+-2023-02-25 22:53:26,200 - INFO - The hourly inflow data are properly loaded into the system.
+-2023-02-25 22:53:27,946 - INFO - The q_fluc is 527 m^3.
+-2023-02-25 22:53:27,946 - INFO - The q_min is 0.0 m^3.
+-2023-02-25 22:53:27,947 - INFO - The criteria_3 is 527.0 m^3.
++2023-02-26 00:22:39,317 - INFO - The user input for no =! yes.
++2023-02-26 00:22:40,796 - INFO - The user input for  =! yes.
++2023-02-26 00:22:41,667 - INFO - The user input for  =! yes.
++2023-02-26 00:22:42,396 - INFO - The user input for  =! yes.
++2023-02-26 00:22:43,257 - INFO - The user input for  =! yes.
++2023-02-26 00:22:44,307 - INFO - The user input for  =! yes.
++2023-02-26 00:22:47,686 - INFO - The user input for the length is 50.
++2023-02-26 00:22:51,966 - INFO - The user input for the width is 100.
++2023-02-26 00:22:51,966 - INFO - The calculated area for the tank is 5000 m^2.
++2023-02-26 00:22:54,267 - INFO - The user input for the volume of the tank is 500.
++2023-02-26 00:22:54,702 - INFO - The outflow data are properly loaded into the system.
++2023-02-26 00:22:54,704 - INFO - The max. amount of outflow is 239.
++2023-02-26 00:22:54,704 - INFO - The category 1 is 119.5.
++2023-02-26 00:23:01,306 - INFO - The user input for the area is a 3.
++2023-02-26 00:23:01,306 - INFO - The user input for the risk of a fire spread is small.
++2023-02-26 00:23:03,327 - INFO - The hourly outflow data are properly loaded into the system.
++2023-02-26 00:23:05,307 - INFO - The hourly inflow data are properly loaded into the system.
++2023-02-26 00:23:07,153 - INFO - The q_fluc is 527 m^3.
++2023-02-26 00:23:07,153 - INFO - The q_min is 2500.0 m^3.
++2023-02-26 00:23:07,154 - INFO - The criteria_3 is 3027.0 m^3.
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="C:\Users\mueda\anaconda3" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
