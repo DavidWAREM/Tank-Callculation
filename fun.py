@@ -6,10 +6,9 @@ import logging
 
 def start_logging():
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=logging.INFO,
         filename="log.log",
         filemode="w",
         format="%(asctime)s - %(levelname)s - %(message)s"
     )
-
 

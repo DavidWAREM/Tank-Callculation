@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from PlotData import plot_data
+from fun import *
 
 # Import raw data from the Excel sheets for each year
 data_2014 = pd.read_excel(r'data\Consumption_2014.xlsx')
@@ -18,11 +19,16 @@ def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), 
     :param consumption_series:
     :return:
     """
+
     # plot data to see if
+
     area = input("Should the Consumption in "+year+" be shown? (Please answer in yes/no)")
     if area == "yes":
         plot_data(data['Datum'], data['Verbrauch'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]", 10,
               "navy")
+        logging.info(f"The user input for the plotting of the year {year} was {area}.")
+    else:
+        logging.info(f"The user input for the plotting of the year {year} not yes.")
     i = 1
     while i > 0 :
         data_verbrauch_max = data['Verbrauch'].max()
@@ -35,6 +41,6 @@ def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), 
         else:
             i = 1
             index = np.argmax(data['Verbrauch'])
+            logging.info(f"The value of the row {index} was marked as wrong data and extinguished.")
             data = data.drop(index)
-
 

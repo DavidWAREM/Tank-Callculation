@@ -1,14 +1,17 @@
 import logging
+
 import pandas as pd
 from fun import *
 
 
+
 class Tank:
     """
-    Beschreibt die ganze berechnung.
+    This class inherent the algorithm for the calculation.
     """
+
     def __init__(self):
-        """setzt die initialen vorraussetzungen."""
+        """Initialise attributes."""
         self.length = 0
         self.width = 0
         self.floor_area = 0
@@ -19,8 +22,6 @@ class Tank:
         self.criteria_3 = 0
 
     def tank_data(self):
-        print("The algorythm will calculate, if the given tank is big enough for the given outflow data,"
-              "\nregarding the German law for water supply facilities.")
         print("\nFirst you need to name the size of your tank.")
 
         # The following will ask the size of the tank from the user.
@@ -104,12 +105,12 @@ class Tank:
 
     def category_1(self):
         # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
-        data_2014 = pd.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
-        data_2015 = pd.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
-        data_2016 = pd.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
-        data_2017 = pd.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
-        data_2018 = pd.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
-        data_2019 = pd.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
+        data_2014 = pd.read_excel(r'data\\Verbrauch_2014.xlsx')
+        data_2015 = pd.read_excel(r'data\\Verbrauch_2015.xlsx')
+        data_2016 = pd.read_excel(r'data\\Verbrauch_2016.xlsx')
+        data_2017 = pd.read_excel(r'data\\Verbrauch_2017.xlsx')
+        data_2018 = pd.read_excel(r'data\\Verbrauch_2018.xlsx')
+        data_2019 = pd.read_excel(r'data\\Verbrauch_2019.xlsx')
         logging.info("The outflow data are properly loaded into the system.")
 
         data = list()
@@ -120,7 +121,7 @@ class Tank:
         data.append(data_2018)
         data.append(data_2019)
 
-        # The Excel Sheets have two Columns- Datum and Verbrauch
+        # The Excel Sheets have two Columns - Datum and Verbrauch
         # Now we shall find the Maximum Value from Verbrauch Column for each year
         data_2014_df_verbrauch_max = data_2014['Verbrauch'].max()
         data_2015_df_verbrauch_max = data_2015['Verbrauch'].max()
@@ -151,7 +152,8 @@ class Tank:
 
     def category_2(self):
         # the while True checks, if the input is correct
-        print("Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?")
+        area = 0
+        print('Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?')
         while True:
             try:
                 area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
@@ -191,7 +193,7 @@ class Tank:
                     break
 
         if area == 1:
-            # If the area is a Residual, this is the branche.
+            # If the area is a Residual, this is the branch.
             # The while True checks, is the input for the floor number is correct.
             print("What is the maximum number of floors in the area? ")
             while True:
@@ -256,7 +258,7 @@ class Tank:
                 if spread_risk == "high":
                     v_fire = 2 * 192
 
-        # If it is a commercial area, this is the branche.
+        # If it is a commercial area, this is the branch.
         if area == 2:
             # Again the while True checks, if the input is correct.
             print("What is the maximum number of floors in the area? ")
@@ -318,7 +320,7 @@ class Tank:
                 if spread_risk == "high":
                     v_fire = 2 * 192
 
-        # If it is an industrial area, this is the branche.
+        # If it is an industrial area, this is the branch.
         if area == 3:
 
             spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
@@ -346,31 +348,31 @@ class Tank:
     def category_3(self):
 
         # Here the hourly inflow and outflow data will be imported to python.
-        df_outflow_2018 = pd.read_excel('data\Verbrauch_2018_hourly.xlsx')
-        df_outflow_2019 = pd.read_excel('data\Verbrauch_2019_hourly.xlsx')
+        df_outflow_2018 = pd.read_excel('data\\Verbrauch_2018_hourly.xlsx')
+        df_outflow_2019 = pd.read_excel('data\\Verbrauch_2019_hourly.xlsx')
         logging.info("The hourly outflow data are properly loaded into the system.")
 
-        df_inflow_2018 = pd.read_excel('data\Inflow_2018_hourly.xlsx')
-        df_inflow_2019 = pd.read_excel('data\Inflow_2019_hourly.xlsx')
+        df_inflow_2018 = pd.read_excel('data\\Inflow_2018_hourly.xlsx')
+        df_inflow_2019 = pd.read_excel('data\\Inflow_2019_hourly.xlsx')
         logging.info("The hourly inflow data are properly loaded into the system.")
 
         # The for function will work with every row of the data. At every moment it will
         # calculate the difference between inflow and outflow.
         # The biggest value plus the minimum Volume to maintain the 0.5 meters in the tank is the criteria 2.
-        list = []
+        list_df = []
         for index, row in df_inflow_2018.iterrows():
             df_1 = df_inflow_2018.at[index, "inflow"]
             df_2 = df_outflow_2018.at[index, "outflow"]
             df = df_2 - df_1
-            list.append(df)
+            list_df.append(df)
 
         for index, row in df_inflow_2019.iterrows():
             df_1 = df_inflow_2019.at[index, "inflow"]
             df_2 = df_outflow_2019.at[index, "outflow"]
             df = df_2 - df_1
-            list.append(df)
+            list_df.append(df)
 
-        q_fluc = max(list)
+        q_fluc = max(list_df)
         q_min = self.floor_area * 0.5
         self.criteria_3 = q_fluc + q_min
         logging.info(f"The q_fluc is {q_fluc} m^3.")
@@ -391,7 +393,4 @@ class Tank:
             print("The given tank is not big enough for the given situation."
                   f"\nThe given volume was {self.volume} m^3.")
             print(f"The needed volume regarding this situation would be {criteria_max} m^3 from {max(criteria)}.")
-
-
-
 
