@@ -104,7 +104,7 @@ class Tank:
         logging.info(f"The user input for the volume of the tank is {self.volume}.")
 
     def category_1(self):
-        # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
+        # Import the Data after the plausibility check from Excel Sheets using Dataframe, Repeat for all years
         data_2014 = pd.read_excel(r'data\\Plausible_Consumption_2014.xlsx')
         data_2015 = pd.read_excel(r'data\\Plausible_Consumption_2015.xlsx')
         data_2016 = pd.read_excel(r'data\\Plausible_Consumption_2016.xlsx')

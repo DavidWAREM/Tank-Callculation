@@ -7,14 +7,14 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
               x_label="", y_label="", size=10, color=""):
     """
 
-    :param date:
-    :param consumption:
-    :param title:
-    :param x_label:
-    :param y_label:
-    :param size:
-    :param color:
-    :return:
+    :param date: Series of the dates of the consumption
+    :param consumption: Series of the daily consumption of a year
+    :param title: string the title of the plot
+    :param x_label: string the label for the x-axis
+    :param y_label: string the label for the y-axis
+    :param size: integer determine the size of the dots in the scatter plot
+    :param color: string name of the colour the dots in the  scatter plot
+    :return: will show the plot of the daily consumption of a particular year
     """
 
     # create the figure for the plot
