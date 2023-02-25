@@ -1,15 +1,20 @@
-2023-02-24 18:29:28,222 - INFO - The input for the length is 1.
-2023-02-24 18:29:28,797 - INFO - The input for the width is 1.
-2023-02-24 18:29:28,797 - INFO - The calculated area for the tank is 1 [m^2].
-2023-02-24 18:29:29,834 - INFO - The input for the volume of the tank is 1.
-2023-02-24 18:29:30,209 - INFO - The outflow data are properly loaded into the system.
-2023-02-24 18:29:30,209 - INFO - The max. amount of outflow is 680.
-2023-02-24 18:29:30,209 - INFO - The category 1 is 340.0.
-2023-02-24 18:29:31,573 - INFO - The user input for floors number is 1.
-2023-02-24 18:29:32,529 - INFO - The user input for the area is a 1.
-2023-02-24 18:29:32,529 - INFO - The user input for the risk of a fire spread is small.
-2023-02-24 18:29:32,927 - INFO - The hourly outflow data are properly loaded into the system.
-2023-02-24 18:29:33,377 - INFO - The hourly inflow data are properly loaded into the system.
-2023-02-24 18:29:33,757 - INFO - The q_fluc is 525 m^3.
-2023-02-24 18:29:33,757 - INFO - The q_min is 0.5 m^3.
-2023-02-24 18:29:33,757 - INFO - The criteria_3 is 525.5 m^3.
+2023-02-25 14:09:56,420 - INFO - The user input for the length is 1.
+2023-02-25 14:09:56,802 - INFO - The user input for the width is 1.
+2023-02-25 14:09:56,802 - INFO - The calculated area for the tank is 1 m^2.
+2023-02-25 14:09:57,489 - INFO - The user input for the volume of the tank is 1.
+2023-02-25 14:09:58,064 - INFO - The outflow data are properly loaded into the system.
+2023-02-25 14:09:58,064 - INFO - The max. amount of outflow is 680.
+2023-02-25 14:09:58,064 - INFO - The category 1 is 340.0.
+2023-02-25 14:10:00,427 - ERROR - User input for area is not a number.
+Traceback (most recent call last):
+  File "C:\Users\mueda\Documents\GitHub\Tank-Callculation\Category.py", line 157, in category_2
+    area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
+ValueError: invalid literal for int() with base 10: 'small'
+2023-02-25 14:10:04,732 - INFO - The user input for floors number is 2.
+2023-02-25 14:10:06,489 - INFO - The user input for the area is a 2.
+2023-02-25 14:10:06,489 - INFO - The user input for the risk of a fire spread is small.
+2023-02-25 14:10:06,918 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-25 14:10:07,352 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-25 14:10:07,686 - INFO - The q_fluc is 525 m^3.
+2023-02-25 14:10:07,686 - INFO - The q_min is 0.5 m^3.
+2023-02-25 14:10:07,686 - INFO - The criteria_3 is 525.5 m^3.

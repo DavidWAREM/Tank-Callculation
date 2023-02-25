@@ -1,5 +1,3 @@
-import logging
-import pandas as panda
 from fun import *
 from Category import Tank
 

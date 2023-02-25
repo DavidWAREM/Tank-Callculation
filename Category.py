@@ -47,7 +47,7 @@ class Tank:
                 else:
                     break
 
-        logging.info(f"The input for the length is {self.length}.")
+        logging.info(f"The user input for the length is {self.length}.")
 
         while True:
             try:
@@ -72,7 +72,7 @@ class Tank:
                 else:
                     break
 
-        logging.info(f"The input for the width is {self.width}.")
+        logging.info(f"The user input for the width is {self.width}.")
 
         self.floor_area = self.width * self.length
         logging.info(f"The calculated area for the tank is {self.floor_area} m^2.")
@@ -100,7 +100,7 @@ class Tank:
                 else:
                     break
 
-        logging.info(f"The input for the volume of the tank is {self.volume}.")
+        logging.info(f"The user input for the volume of the tank is {self.volume}.")
 
     def category_1(self):
         # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
@@ -232,13 +232,10 @@ class Tank:
                     logging.error("The input for the fire risk is neither small, medium or high.")
 
                 if spread_risk == "small":
-                    print("niedrig, small, Residual")
                     v_fire = 2 * 48
                 if spread_risk == "medium":
-                    print("niedrig, medium, Residual")
                     v_fire = 2 * 96
                 if spread_risk == "high":
-                    print("niedrig, high, Residual")
                     v_fire = 2 * 96
 
             # If The number of floors is more than 3.
@@ -253,13 +250,10 @@ class Tank:
                     logging.error("The input for the fire risk is neither small, medium or high.")
 
                 if spread_risk == "small":
-                    print("hoch, small, Residual")
                     v_fire = 2 * 96
                 if spread_risk == "medium":
-                    print("hoch, medium, Residual")
                     v_fire = 2 * 96
                 if spread_risk == "high":
-                    print("hoch, high, Residual")
                     v_fire = 2 * 192
 
         # If it is a commercial area, this is the branche.
@@ -301,13 +295,10 @@ class Tank:
                     logging.error("The input for the fire risk is neither small, medium or high.")
 
                 if spread_risk == "small":
-                    print("niedrig, small, Commercial")
                     v_fire = 2 * 96
                 if spread_risk == "medium":
-                    print("niedrig, medium, Commercial")
                     v_fire = 2 * 96
                 if spread_risk == "high":
-                    print("niedrig, high, Commercial")
                     v_fire = 2 * 192
 
             else:
@@ -321,13 +312,10 @@ class Tank:
                     logging.error("The input for the fire risk is neither small, medium or high.")
 
                 if spread_risk == "small":
-                    print("hoch, small, Commercial")
                     v_fire = 2 * 96
                 if spread_risk == "medium":
-                    print("hoch, medium, Commercial")
                     v_fire = 2 * 192
                 if spread_risk == "high":
-                    print("hoch, high, Commercial")
                     v_fire = 2 * 192
 
         # If it is an industrial area, this is the branche.
@@ -342,13 +330,10 @@ class Tank:
                 logging.error("The input for the fire risk is neither small, medium or high.")
 
             if spread_risk == "small":
-                print("small, Industrial")
                 v_fire = 2 * 96
             if spread_risk == "medium":
-                print("medium, Industrial")
                 v_fire = 2 * 192
             if spread_risk == "high":
-                print("high, Industrial")
                 v_fire = 2 * 192
 
         logging.info(f"The user input for the area is a {area}.")
@@ -396,7 +381,7 @@ class Tank:
     def final_calculation(self):
         criteria = {"Category 1, qdmax": self.criteria_1,
                     "Category 2, additional water for firefighters": self.criteria_2,
-                    "Criteria 3, Volume needed to maintain a minimum water level in the water tank": self.criteria_3}
+                    "Criteria 3, volume needed to maintain a minimum water level in the water tank": self.criteria_3}
         criteria_max = max(self.criteria_1, self.criteria_2, self.criteria_3)
         if criteria_max <= self.volume:
             print("The given tank is big enough for the given situation."
