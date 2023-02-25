@@ -23,15 +23,30 @@ def plausibility(date_series=panda.Series(), consumption_series=panda.Series()):
     print(date_consumption_max.to_string(index=False))
     dates = np.array(date_consumption_max)
     check1 = panda.to_datetime(dates).month
-    if check1 > 5 and check1 < 10:
-        print("Yuhu, Summer!!")
-        print(date_consumption_max['Datum', 'Verbrauch'])
-    else:
-        print("Oops, pipe bursted!!")
-        #data = data.drop(data['Verbrauch'] == data_verbrauch_max)
-        print(date_consumption_max)
 
+    print(f"Vorher {check1}.")
+    data.drop(data["Verbrauch"].idxmax())
+    print(f"nachher {check1}.")
+"""
+    while check1 > 5 and check1 < 10:
+        data.drop(df["Verbrauch"].idxmax())
+        data_verbrauch_max = data['Verbrauch'].max()
+        date_consumption_max = data['Datum'][data['Verbrauch'] == data_verbrauch_max]
+        dates = np.array(date_consumption_max)
+        check1 = panda.to_datetime(dates).month
 
+    print(f"nachher {check1}.")
+"""
+"""
+        if check1 > 5 and check1 < 10:
+            print("Yuhu, Summer!!")
+            print(date_consumption_max['Datum', 'Verbrauch'])
+        else:
+            print("Oops, pipe bursted!!")
+            #data = data.drop(data['Verbrauch'] == data_verbrauch_max)
+            #print(date_consumption_max)
+
+"""
 plausibility(data['Datum'], data['Verbrauch'])
 
 """plot_data(data['Datum'],data['Verbrauch'],"Daily Consumption",1,"blue")

@@ -346,12 +346,12 @@ class Tank:
     def category_3(self):
 
         # Here the hourly inflow and outflow data will be imported to python.
-        df_outflow_2018 = pd.read_excel('data\Verbrauch_2018_hourly_Sample_Data.xlsx', sheet_name='temp')
-        df_outflow_2019 = pd.read_excel('data\Verbrauch_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
+        df_outflow_2018 = pd.read_excel('data\Verbrauch_2018_hourly.xlsx')
+        df_outflow_2019 = pd.read_excel('data\Verbrauch_2019_hourly.xlsx')
         logging.info("The hourly outflow data are properly loaded into the system.")
 
-        df_inflow_2018 = pd.read_excel('data\Inflow_2018_hourly_Sample_Data.xlsx', sheet_name='temp')
-        df_inflow_2019 = pd.read_excel('data\Inflow_2019_hourly_Sample_Data.xlsx', sheet_name='temp')
+        df_inflow_2018 = pd.read_excel('data\Inflow_2018_hourly.xlsx')
+        df_inflow_2019 = pd.read_excel('data\Inflow_2019_hourly.xlsx')
         logging.info("The hourly inflow data are properly loaded into the system.")
 
         # The for function will work with every row of the data. At every moment it will
@@ -391,7 +391,6 @@ class Tank:
             print("The given tank is not big enough for the given situation."
                   f"\nThe given volume was {self.volume} m^3.")
             print(f"The needed volume regarding this situation would be {criteria_max} m^3 from {max(criteria)}.")
-
 
 
 
