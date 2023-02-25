@@ -4,7 +4,7 @@ import numpy as np
 
 
 def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
-              x_label="", y_label="", size=10, color="navy"):
+              x_label="", y_label="", size=10, color=""):
     """
 
     :param date:
@@ -17,24 +17,25 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
     :return:
     """
 
-    # create figure
-    fig, axes = plt.subplots(figsize=(15, 9))
+    # create the figure for the plot
+    fig, axis = plt.subplots(figsize=(15, 9))
 
-    # make blue-marker scatter plot (circles with size 4)
-    axes.scatter(x=date, y=consumption,
+    # create a scatter plot
+    axis.scatter(x=date, y=consumption,
                  marker="o", s=size, color=color)
 
-    # set axis labels
-    axes.set(xlabel=x_label, ylabel=y_label, title=title)
+    # give both axes labels
+    axis.set(xlabel=x_label, ylabel=y_label, title=title)
 
-    # show grid and set plot limits
+    # set the limits for the axes and show grid lines in plot
     plt.xlim(date.min(), date.max())
     plt.grid()
 
-    """y_max = consumption.max()
-    x_max_pos = date(consumption == y_max)
-    x_max = date[x_max_pos]
-    axes.annotate('Qdmax', xy=(x_max, y_max), xytext=(x_max, y_max), arrowprops=dict(facecolor='black') )"""
+    # point on Qdmax in the year with a red arrow
+    index = np.argmax(consumption)
+    y_max = consumption[index]
+    x_max = date[index]
+    axis.annotate('Qdmax', xy=(x_max, y_max), arrowprops=dict(facecolor='red'))
 
-    # show plot
+    # show the plot
     plt.show()

@@ -104,12 +104,12 @@ class Tank:
 
     def category_1(self):
         # Import Raw Data from Excel Sheets using Dataframe, Repeat for all years
-        data_2014 = pd.read_excel(r"data\Verbrauch_2014.xlsx", index_col=0)
-        data_2015 = pd.read_excel(r"data\Verbrauch_2015.xlsx", index_col=0)
-        data_2016 = pd.read_excel(r"data\Verbrauch_2016.xlsx", index_col=0)
-        data_2017 = pd.read_excel(r"data\Verbrauch_2017.xlsx", index_col=0)
-        data_2018 = pd.read_excel(r"data\Verbrauch_2018.xlsx", index_col=0)
-        data_2019 = pd.read_excel(r"data\Verbrauch_2019.xlsx", index_col=0)
+        data_2014 = pd.read_excel(r"data\Plausible_Consumption_2014.xlsx", index_col=0)
+        data_2015 = pd.read_excel(r"data\Plausible_Consumption_2015.xlsx", index_col=0)
+        data_2016 = pd.read_excel(r"data\Plausible_Consumption_2016.xlsx", index_col=0)
+        data_2017 = pd.read_excel(r"data\Plausible_Consumption_2017.xlsx", index_col=0)
+        data_2018 = pd.read_excel(r"data\Plausible_Consumption_2018.xlsx", index_col=0)
+        data_2019 = pd.read_excel(r"data\Plausible_Consumption_2019.xlsx", index_col=0)
         logging.info("The outflow data are properly loaded into the system.")
 
         data = list()
