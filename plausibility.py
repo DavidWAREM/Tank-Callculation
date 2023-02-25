@@ -18,7 +18,7 @@ def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), 
               "navy")
         logging.info(f"The user input for {year} is yes.")
     else:
-        logging.info(f"The user input for {area} =! yes.")
+        logging.info(f"The user input for {year} =! yes.")
     i = 1
     while i > 0 :
         data_verbrauch_max = data['Verbrauch'].max()
@@ -31,7 +31,9 @@ def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), 
         else:
             i = 1
             index = np.argmax(data['Verbrauch'])
+            logging.info(f"The raw {index} was a wrong value and was extinguished.")
             data = data.drop(index)
-    print("Plausibilty check for the consumption in " + year +  " successfully ran.")
+    print("Plausibility check for the consumption in " + year +  " successfully ran.")
+    logging.info(f"The plausibility check for the consumption in {year} successfully ran.")
 
 
