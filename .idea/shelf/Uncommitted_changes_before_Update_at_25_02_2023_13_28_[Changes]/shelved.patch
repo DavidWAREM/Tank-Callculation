@@ -1,0 +1,92 @@
+Index: PlotData.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import matplotlib.pyplot as plot\r\nimport pandas as panda\r\n\r\ndef plot_data (time_series=panda.Series(), q_series=panda.Series(), title=\"\",\r\n                   x_label=\"\", y_label=\"\", size=1, color=\"blue\"):\r\n    \"\"\"\r\n\r\n    :param time_series:\r\n    :param q_series:\r\n    :param title:\r\n    :param size:\r\n    :param color:\r\n    :return:\r\n    \"\"\"\r\n\r\n    # create figure\r\n    fig, axes = plot.subplots(figsize=(11, 6))\r\n\r\n    # make blue-marker scatter plot (circles with size 4)\r\n    axes.scatter(x=time_series, y=q_series,\r\n                 marker=\"o\", s=size, color=color)\r\n\r\n    # set axis labels\r\n    axes.set(xlabel=x_label, ylabel=y_label, title=title)\r\n\r\n    # show grid and set plot limits\r\n    plot.xlim(time_series.min(), q_series.max())\r\n    plot.grid()\r\n\r\n    # show plot\r\n    plot.show()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlotData.py b/PlotData.py
+--- a/PlotData.py	(revision 7b483fe7a6857a403934a456ddb11006d00d7bc9)
++++ b/PlotData.py	(date 1677324910357)
+@@ -1,7 +1,7 @@
+ import matplotlib.pyplot as plot
+ import pandas as panda
+ 
+-def plot_data (time_series=panda.Series(), q_series=panda.Series(), title="",
++def plot_data (date=panda.Series(), consumption=panda.Series(), title="",
+                    x_label="", y_label="", size=1, color="blue"):
+     """
+ 
+@@ -17,14 +17,14 @@
+     fig, axes = plot.subplots(figsize=(11, 6))
+ 
+     # make blue-marker scatter plot (circles with size 4)
+-    axes.scatter(x=time_series, y=q_series,
++    axes.scatter(x=date, y=consumption,
+                  marker="o", s=size, color=color)
+ 
+     # set axis labels
+     axes.set(xlabel=x_label, ylabel=y_label, title=title)
+ 
+     # show grid and set plot limits
+-    plot.xlim(time_series.min(), q_series.max())
++    plot.xlim(date.min(), date.max())
+     plot.grid()
+ 
+     # show plot
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"11465836-f59d-4fa9-a7a8-e8be4de8a4da\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/PlotData.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/PlotData.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/plausibility.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/plausibility.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2M3TjGrPIFLMii3VQuGk461toAr\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/mueda/Documents/GitHub/Tank-Callculation&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\mueda\\Documents\\GitHub\\Tank-Callculation\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"11465836-f59d-4fa9-a7a8-e8be4de8a4da\" name=\"Changes\" comment=\"\" />\r\n      <created>1676995399748</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676995399748</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7b483fe7a6857a403934a456ddb11006d00d7bc9)
++++ b/.idea/workspace.xml	(date 1677326084020)
+@@ -4,11 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlotData.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -50,6 +48,21 @@
+       <option name="presentableId" value="Default" />
+       <updated>1676995399748</updated>
+     </task>
++    <task id="LOCAL-00001" summary="updatw">
++      <created>1677324774296</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1677324774296</updated>
++    </task>
++    <task id="LOCAL-00002" summary="update">
++      <created>1677324803158</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1677324803158</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -63,4 +76,9 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="updatw" />
++    <MESSAGE value="update" />
++    <option name="LAST_COMMIT_MESSAGE" value="update" />
++  </component>
+ </project>
+\ No newline at end of file

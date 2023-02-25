@@ -1,0 +1,100 @@
+Index: plausibility.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pandas as pd\r\nimport numpy as np\r\nfrom PlotData import plot_data\r\n\r\n\r\ndef check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), data=\"\", year=\"\"):\r\n    \"\"\"\r\n\r\n    :param date_series:\r\n    :param consumption_series:\r\n    :return:\r\n    \"\"\"\r\n    # plot data to show if Qdmax is in summer or not\r\n    area = input(\"Should the Consumption in \"+year+\" be shown? (Please answer in yes/no)\")\r\n    if area == \"yes\":\r\n        plot_data(data['Datum'], data['Verbrauch'], \"Daily Consumption\", \"Date [year-month]\", \"Consumption[M3/day]\", 10,\r\n              \"navy\")\r\n    i = 1\r\n    while i > 0 :\r\n        data_verbrauch_max = data['Verbrauch'].max()\r\n        date_consumption_max = data['Datum'][data['Verbrauch'] == data_verbrauch_max]\r\n        date_peak_day = np.array(date_consumption_max)\r\n        month_peak_day = pd.to_datetime(date_peak_day).month\r\n        if month_peak_day > 5 and month_peak_day < 10:\r\n            i = 0\r\n            data.to_excel(\"data\\Plausible_Consumption_\"+year+\".xlsx\", index=False)\r\n        else:\r\n            i = 1\r\n            index = np.argmax(data['Verbrauch'])\r\n            data = data.drop(index)\r\n    print(\"Plausibilty check for the consumption in \" + year +  \" successfully ran.\")\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/plausibility.py b/plausibility.py
+--- a/plausibility.py	(revision 24ab062e1d266f6efab8d3faf91be58eda6cb0ef)
++++ b/plausibility.py	(date 1677363033888)
+@@ -28,6 +28,6 @@
+             i = 1
+             index = np.argmax(data['Verbrauch'])
+             data = data.drop(index)
+-    print("Plausibilty check for the consumption in " + year +  " successfully ran.")
++    print("Plausibilty check for the consumption in " + year + " successfully ran.")
+ 
+ 
+Index: log.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>2023-02-25 22:53:24,158 - INFO - The hourly outflow data are properly loaded into the system.\r\n2023-02-25 22:53:26,200 - INFO - The hourly inflow data are properly loaded into the system.\r\n2023-02-25 22:53:27,946 - INFO - The q_fluc is 527 m^3.\r\n2023-02-25 22:53:27,946 - INFO - The q_min is 0.0 m^3.\r\n2023-02-25 22:53:27,947 - INFO - The criteria_3 is 527.0 m^3.\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/log.log b/log.log
+--- a/log.log	(revision 24ab062e1d266f6efab8d3faf91be58eda6cb0ef)
++++ b/log.log	(date 1677364310504)
+@@ -1,5 +1,5 @@
+-2023-02-25 22:53:24,158 - INFO - The hourly outflow data are properly loaded into the system.
+-2023-02-25 22:53:26,200 - INFO - The hourly inflow data are properly loaded into the system.
+-2023-02-25 22:53:27,946 - INFO - The q_fluc is 527 m^3.
+-2023-02-25 22:53:27,946 - INFO - The q_min is 0.0 m^3.
+-2023-02-25 22:53:27,947 - INFO - The criteria_3 is 527.0 m^3.
++2023-02-25 23:31:47,088 - INFO - The hourly outflow data are properly loaded into the system.
++2023-02-25 23:31:49,127 - INFO - The hourly inflow data are properly loaded into the system.
++2023-02-25 23:31:50,503 - INFO - The q_fluc is 527 m^3.
++2023-02-25 23:31:50,503 - INFO - The q_min is 0.0 m^3.
++2023-02-25 23:31:50,504 - INFO - The criteria_3 is 527.0 m^3.
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"11465836-f59d-4fa9-a7a8-e8be4de8a4da\" name=\"Changes\" comment=\"test\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Category.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Category.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2014.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2015.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2016.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2017.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2018.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Plausible_Consumption_2019.xlsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/PlotData.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/PlotData.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/log.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/log.log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/plausibility.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/plausibility.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2M3TjGrPIFLMii3VQuGk461toAr\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/mueda/Documents/GitHub/Tank-Callculation&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\mueda\\Documents\\GitHub\\Tank-Callculation\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"11465836-f59d-4fa9-a7a8-e8be4de8a4da\" name=\"Changes\" comment=\"\" />\r\n      <created>1676995399748</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676995399748</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"update\">\r\n      <created>1677353204218</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677353204218</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"test\">\r\n      <created>1677359455209</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677359455209</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ID_ORDER\">\r\n      <list>\r\n        <option value=\"Default.Root\" />\r\n        <option value=\"Default.Author\" />\r\n        <option value=\"Default.Date\" />\r\n        <option value=\"Default.Subject\" />\r\n        <option value=\"Space.CommitStatus\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"update\" />\r\n    <MESSAGE value=\"test\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"test\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 24ab062e1d266f6efab8d3faf91be58eda6cb0ef)
++++ b/.idea/workspace.xml	(date 1677366883457)
+@@ -4,16 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="test">
++    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="plausibility and plot finished">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Category.py" beforeDir="false" afterPath="$PROJECT_DIR$/Category.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2014.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2015.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2016.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2017.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2018.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Plausible_Consumption_2019.xlsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlotData.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2014.xlsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2015.xlsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2016.xlsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2017.xlsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2018.xlsx" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/Verbrauch_2019.xlsx" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
+     </list>
+@@ -71,7 +70,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1677359455209</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="plausibility and plot finished">
++      <created>1677363015952</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1677363015952</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.History.Properties">
+@@ -99,6 +105,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="update" />
+     <MESSAGE value="test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="test" />
++    <MESSAGE value="plausibility and plot finished" />
++    <option name="LAST_COMMIT_MESSAGE" value="plausibility and plot finished" />
+   </component>
+ </project>
+\ No newline at end of file
