@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from PlotData import plot_data
+from fun import *
 
 
 def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), data="", year=""):
@@ -15,6 +16,9 @@ def check_plausibility(date_series=pd.Series(), consumption_series=pd.Series(), 
     if area == "yes":
         plot_data(data['Datum'], data['Verbrauch'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]", 10,
               "navy")
+        logging.info(f"The user input for {year} is yes.")
+    else:
+        logging.info(f"The user input for {area} =! yes.")
     i = 1
     while i > 0 :
         data_verbrauch_max = data['Verbrauch'].max()
