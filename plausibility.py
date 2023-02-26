@@ -7,17 +7,21 @@ from fun import *
 def check_plausibility(data="", year=""):
     """
 
-    :param date_series:
-    :param consumption_series:
+    :param data: Series of
+    :param year:
     :return:
     """
+
     # plot data to show if Qdmax is in summer or not
-    area = input("Should the Consumption in "+year+" be shown? (Please answer in yes/no)")
-    if area == "yes":
+    plot_in = input("Should the Consumption in "+year+" be shown? (Please answer in yes/no)")
+    if plot_in == "yes":
         plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]", 10,
-              "navy")
+              "navy",True)
         logging.info(f"The user input for {year} is yes.")
-    else:
+    elif plot_in == "no":
+        plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]",
+                  10,
+                  "navy", False)
         logging.info(f"The user input for {year} =! yes.")
     i = 1
     while i > 0 :

@@ -4,7 +4,7 @@ import numpy as np
 
 
 def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
-              x_label="", y_label="", size=10, color=""):
+              x_label="", y_label="", size=10, color="", ask_plot=True):
     """
 
     :param date: Series of the dates of the consumption
@@ -14,6 +14,7 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
     :param y_label: string the label for the y-axis
     :param size: integer determine the size of the dots in the scatter plot
     :param color: string name of the colour the dots in the  scatter plot
+    :param ask_plot: boolean to determine if the plot should be shown or not
     :return: will show the plot of the daily consumption of a particular year
     """
 
@@ -38,4 +39,5 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
     axis.annotate('Qdmax', xy=(x_max, y_max), arrowprops=dict(facecolor='red'))
 
     # show the plot
-    plt.show()
+    if ask_plot is True:
+        plt.show()
