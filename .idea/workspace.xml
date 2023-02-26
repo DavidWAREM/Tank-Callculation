@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlotData.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlotData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2014.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2015.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2015.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2016.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2016.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2017.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2017.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2018.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2018.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2019.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2019.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
-    </list>
+    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677369265695</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <created>1677405044748</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677405044748</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
