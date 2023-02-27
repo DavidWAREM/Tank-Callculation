@@ -123,21 +123,21 @@ class Tank:
 
         # The Excel Sheets have two Columns - Date and Consumption
         # Now we shall find the Maximum Value from Consumption Column for each year
-        data_2014_df_verbrauch_max = data_2014['Consumption'].max()
-        data_2015_df_verbrauch_max = data_2015['Consumption'].max()
-        data_2016_df_verbrauch_max = data_2016['Consumption'].max()
-        data_2017_df_verbrauch_max = data_2017['Consumption'].max()
-        data_2018_df_verbrauch_max = data_2018['Consumption'].max()
-        data_2019_df_verbrauch_max = data_2019['Consumption'].max()
+        data_2014_df_cons_max = data_2014['Consumption'].max()
+        data_2015_df_cons_max = data_2015['Consumption'].max()
+        data_2016_df_cons_max = data_2016['Consumption'].max()
+        data_2017_df_cons_max = data_2017['Consumption'].max()
+        data_2018_df_cons_max = data_2018['Consumption'].max()
+        data_2019_df_cons_max = data_2019['Consumption'].max()
 
         # Create an Array of list Containing all Maximum Values from above
         my_data = list()
-        my_data.append(data_2014_df_verbrauch_max)
-        my_data.append(data_2015_df_verbrauch_max)
-        my_data.append(data_2016_df_verbrauch_max)
-        my_data.append(data_2017_df_verbrauch_max)
-        my_data.append(data_2018_df_verbrauch_max)
-        my_data.append(data_2019_df_verbrauch_max)
+        my_data.append(data_2014_df_cons_max)
+        my_data.append(data_2015_df_cons_max)
+        my_data.append(data_2016_df_cons_max)
+        my_data.append(data_2017_df_cons_max)
+        my_data.append(data_2018_df_cons_max)
+        my_data.append(data_2019_df_cons_max)
 
         # Find Maximum Value from all years for Discharge
         self.qdmax = max(my_data)

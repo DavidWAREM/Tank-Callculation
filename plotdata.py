@@ -6,7 +6,7 @@ import numpy as np
 def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
               x_label="", y_label="", size=10, color="", ask_plot=True):
     """
-
+    Plot function will plot the selected data
     :param date: Series of the dates of the consumption
     :param consumption: Series of the daily consumption of a year
     :param title: string the title of the plot
@@ -32,12 +32,12 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
     plt.xlim(date.min(), date.max())
     plt.grid()
 
-    # point on Qdmax in the year with a red arrow
+    # point on daily peak consumption in the year with a red arrow
     index = np.argmax(consumption)
     y_max = consumption[index]
     x_max = date[index]
     axis.annotate('Qdmax', xy=(x_max, y_max), arrowprops=dict(facecolor='red'))
 
-    # show the plot
+    # show the plot if True
     if ask_plot is True:
         plt.show()
