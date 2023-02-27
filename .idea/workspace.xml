@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update 18:49">
+    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update 19:51">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2017.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2017.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2018.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2018.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Plausible_Consumption_2019.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/Plausible_Consumption_2019.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677520217738</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update 19:51">
+      <created>1677523900695</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1677523900695</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -206,6 +207,7 @@
     <MESSAGE value="main and plausibility function" />
     <MESSAGE value="update" />
     <MESSAGE value="update 18:49" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 18:49" />
+    <MESSAGE value="update 19:51" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 19:51" />
   </component>
 </project>

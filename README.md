@@ -190,7 +190,7 @@ while self.volume <= 0:
 ```
 
 Now each category will be calculated.
-1. Category 1
+**1. Category 1**
 
 As the raw data was already checked through the plausibility check we need to import the plausible data. Using *pandas* the data is imported.
 ```python
@@ -226,7 +226,7 @@ self.qdmax = max(my_data)
 self.criteria_1 = 0.5 * self.qdmax
 print(f"Criteria 1 = {self.criteria_1} m^3")
 ```
-2. Category 2
+**2. Category 2**
 
 For the second criteria the water volume in case of fire needs to be calculated.
 Here several informations are needed to determine the fire volume. 
@@ -350,7 +350,163 @@ else:
     if spread_risk == "high":
         v_fire = 2 * 192
 ```
-For the 
+If the first input is **commercial (2)** then the number of stories/floors are also needed.
+```python
+if area == 2:
+    print("What is the maximum number of floors in the area? ")
+    while True:
+        try:
+            floors_number = int(input("Please insert a number: "))
+        except ValueError:
+            print("Wrong input!")
+            logging.exception("User input for floor number is not a number.")
+            continue
+        else:
+            break
+```
+For wrong number of stories another error message will be given.
+```python
+while floors_number == 0:
+    print("Wrong input, if the floor number is '0', there would be no building.")
+    logging.error("Input for floor number == 0.")
+    while True:
+        try:
+            floors_number = int(input("Please insert a number: "))
+        except ValueError:
+            print("Wrong input!")
+            logging.exception("User input for floor number is not a number.")
+            continue
+        else:
+            break
+```
+But, using the `if` statement once again, if it has only one storey than the fire volume depending the spread risk again will be either **96 m³** or **192 m³**.
+```python
+if floors_number <= 1:
+    logging.info(f"The user input for floors number is {floors_number}.")
+    spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
+                        "\nIf you do not know, ask the responsible fire department. ")
 
-3. Category 3
+    while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
+        spread_risk = input("This is neither 'small', 'medium', or 'high'."
+                            "\nPlease check the risk of fire spread and insert on of the three terms. ")
+        logging.error("The input for the fire risk is neither small, medium or high.")
+
+    if spread_risk == "small":
+        v_fire = 2 * 96
+    if spread_risk == "medium":
+        v_fire = 2 * 96
+    if spread_risk == "high":
+        v_fire = 2 * 192
+```
+Otherwise the fire volume will also have **96 m³** or **192 m³**. It differs in the spread risk that the user has to put in.
+```python
+else:
+    logging.info(f"The user input for floors number is {floors_number}.")
+    spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
+                        "\nIf you do not know, ask the responsible fire department. ")
+
+    while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
+        spread_risk = input("This is neither 'small', 'medium', or 'high'."
+                            "\nPlease check the risk of fire spread and insert on of the three terms. ")
+        logging.error("The input for the fire risk is neither small, medium or high.")
+
+    if spread_risk == "small":
+        v_fire = 2 * 96
+    if spread_risk == "medium":
+        v_fire = 2 * 192
+    if spread_risk == "high":
+        v_fire = 2 * 192
+```
+If the first input is **industrial (3)** the only other input needed to determine the fire volume ist the spread risk.
+Here ther fire volume also differs between **96 m³** or **192 m³**.
+```python
+if area == 3:
+    spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
+                        "\nIf you do not know, ask the responsible fire department. ")
+
+    while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
+        spread_risk = input("This is neither 'small', 'medium', or 'high'."
+                            "\nPlease check the risk of fire spread and insert on of the three terms. ")
+        logging.error("The input for the fire risk is neither small, medium or high.")
+
+    if spread_risk == "small":
+        v_fire = 2 * 96
+    if spread_risk == "medium":
+        v_fire = 2 * 192
+    if spread_risk == "high":
+        v_fire = 2 * 192
+```
+After all the inputs have been done by the user, the water volume needed for fire fighting can be determined.
+To calculate the volume for **category 2** now the fire volume needs to be added to `0.3 * Qdmax`.
+```python
+self.criteria_2 = v_fire + 0.3 * self.qdmax
+    print(f"Criteria 2 = {self.criteria_2} m^3.")
+```
+
+**3. Category 3**
+For the last category the hourly inflow and outflow of the water tank are needed.
+Therefore using *pandas* again the data will be imported.
+```python
+df_outflow_2018 = pd.read_excel('data\\Verbrauch_2018_hourly.xlsx')
+df_outflow_2019 = pd.read_excel('data\\Verbrauch_2019_hourly.xlsx')
+logging.info("The hourly outflow data are properly loaded into the system.")
+
+df_inflow_2018 = pd.read_excel('data\\Inflow_2018_hourly.xlsx')
+df_inflow_2019 = pd.read_excel('data\\Inflow_2019_hourly.xlsx')
+logging.info("The hourly inflow data are properly loaded into the system.")
+```
+To get the equalizing volume for the fluctuation in that area the inflow needs to be deducted from the outflow.
+This is being done for each row and put into a list using the `for` statement and `list.append()`.
+```python
+list_df = []
+    for index, row in df_inflow_2018.iterrows():
+        df_1 = df_inflow_2018.at[index, "inflow"]
+        df_2 = df_outflow_2018.at[index, "outflow"]
+        df = df_2 - df_1
+        list_df.append(df)
+
+    for index, row in df_inflow_2019.iterrows():
+        df_1 = df_inflow_2019.at[index, "inflow"]
+        df_2 = df_outflow_2019.at[index, "outflow"]
+        df = df_2 - df_1
+        list_df.append(df)
+```
+Now the fluctuation volume can be determined by using `max()` from all the fluctuation calculated.
+Another important volume is the minimal volume in the tank that is being calculated by multiplying the already calculated *floor area* by **0.5**.
+The Volume of the final criteria will be the sum of these two volumes.
+```python
+q_fluc = max(list_df)
+q_min = self.floor_area * 0.5
+self.criteria_3 = q_fluc + q_min
+logging.info(f"The q_fluc is {q_fluc} m^3.")
+logging.info(f"The q_min is {q_min} m^3.")
+logging.info(f"The criteria_3 is {self.criteria_3} m^3.")
+print(f"The criteria 3 is {self.criteria_3} m^3.")
+```
+
 ## Evaluating the current volume
+For the evaluation of the current tank. In the class `Tank` one more function called `final_calculation` is defined.
+Here all the volumes calculated from each category is called and with `max()` the biggest of the volume is selected to be compared with the current volume.
+```python
+def final_calculation(self):
+    criteria = {"Category 1, qdmax": self.criteria_1,
+                "Category 2, additional water for firefighters": self.criteria_2,
+                "Criteria 3, volume needed to maintain a minimum water level in the water tank": self.criteria_3}
+    criteria_max = max(self.criteria_1, self.criteria_2, self.criteria_3)
+```
+Now with the `if` statement it is being determined if the current tank is big enough or to big for the current consumption.
+```python
+if criteria_max <= self.volume:
+    print("The given tank is big enough for the given situation."
+            f"\nThe minimum tank volume would be {criteria_max} m^3 from {max(criteria)}.")
+    logging.info("The given tank is big enough.")
+else:
+    print("The given tank is not big enough for the given situation."
+            f"\nThe given volume was {self.volume} m^3.")
+    print(f"The needed volume regarding this situation would be {criteria_max} m^3 from {max(criteria)}.")
+    logging.info("The given tank is not big enough for the given situation.")
+    logging.info(f"The needed volume regarding this situation would be {criteria_max} m^3"
+                    f" from {max(criteria)}.")
+```
+If the current tank is bigger than the volume of the categories then it is big enough or maybe could be smaller.
+Whereas if the current volume is smaller than the volume of the categories then the usable volume that the tank needs will be given.
