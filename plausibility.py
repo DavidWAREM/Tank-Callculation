@@ -6,6 +6,7 @@ from fun import *
 
 class Plausibility:
     """
+    Author: Graciella Bawole
     This class is defined for the plausibility check
     """
     def __init__(self, data, year):
@@ -63,6 +64,10 @@ class Plausibility:
 
 
 class PlotDaily(Plausibility):
+    """
+    Author: Graciella Bawole, Ashwini Rajashekhar Mudigoudar
+    Inherit from class Plausibility.
+    """
     def plot_daily(self):
         """
         Function will plot the data of the selected year if wanted.
