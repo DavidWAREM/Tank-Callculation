@@ -16,6 +16,54 @@ tank supplying this area may also change. Therefore, using past daily consumptio
 data of the last couple of years as well as the hourly inflow and outflow of the 
 water tank on a peak day a new needed volume should be determined.
 
+Based on the DVGW W300-1 the tank should cover up certain scenarios. Therefore the following categories are defined:
+1. The Volume should at least be able to supply the area for half a day of a day with maximum consumption:
+    **V = 0.5 * Qdmax**
+2. In case of a fire the tank should be able to give water for fire fighting for 2 hours while being able to cover about one third of a day (~ 7 hours) of a day with maximum consumption: 
+    **V = (2 * V_fire) + (0.3 * Qdmax)**
+3. As the tank should not be empty as otherwise air could enter the pipes the tank should always hava a minimum volume inside. Therefore a minimum water height of 0.5 m is needed in the tank
+   The tank is also needed to equalize the fluctuation of the water consumption in the area.
+   Adding both volumes the needed volume: **V = Q_fluk + Q_min**
+
+As the tank should cover all scenarios, only the biggest volume needs to be compared with the current volume of the water tank. 
+So, we can determine if the tank is big enough or even too big so the volume needs to be reduced or if it is to small and needs to be planned new with a bigger volume.
+
+## Run the programm
+As all the classes and functions are already called in the `main.py` the `main.py`can be directly run and it will give the final result.
+```python
+import pandas as pd
+from plausibility import Plausibility, PlotDaily
+from fun import *
+from category import Tank
+
+print("This algorithm will calculate, if the given tank is big enough for the given outflow data,"
+      "\nregarding the German law for water supply facilities.")
+
+if __name__ == '__main__':
+    start_logging()
+
+    p_2017 = Plausibility(data_raw_2017, "2017")
+    pl_2017 = PlotDaily(data_raw_2017, "2017")
+    p_2018 = Plausibility(data_raw_2018, "2018")
+    pl_2018 = PlotDaily(data_raw_2018, "2018")
+    p_2019 = Plausibility(data_raw_2019, "2019")
+    pl_2019 = PlotDaily(data_raw_2019, "2019")
+    pl_2017.plot_daily()
+    p_2017.check_plausibility()
+    pl_2018.plot_daily()
+    p_2018.check_plausibility()
+    pl_2019.plot_daily()
+    p_2019.check_plausibility()
+
+    my_tank = Tank()
+    my_tank.tank_data()
+    my_tank.category_1()
+    my_tank.category_2()
+    my_tank.category_3()
+    my_tank.final_calculation()
+```
+The data import that is also int the `main.py` is explained in the following.
+
 ## Data Import
 Using *pandas* the daily consumption of the area will be imported. In `main.py` the latest daily consumption of the past years are being imported with `pd.read_excel`.
 ```python
@@ -44,11 +92,9 @@ A second function will be defined as `check_plausibility`.
 def check_plausibility(self):
     i = 1
     while i > 0:
-            # get the maximum consumption
+
         data_cons_max = self.data['Consumption'].max()
-            # get the date of the maximum consumption
         date_cons_max = self.data['Date'][self.data['Consumption'] == data_cons_max]
-            # get the month of the date of the maximum consumption
         date_peak_day = np.array(date_cons_max)
         month_peak_day = pd.to_datetime(date_peak_day).month
 ```
@@ -63,15 +109,12 @@ Here we defined Summer from June to September.
 ```python
 if 5 < month_peak_day < 10:
     i = 0
-                # the plausible data will be exported into an Excel file
     self.data.to_excel("data\\Plausible_Consumption_" + self.year + ".xlsx", index=False)
     logging.info(f"The user input for {self.year} is yes.")
 else:
     i = 1
-            # get the index where the daily consumption is maximum
     index = np.argmax(self.data['Consumption'])
     logging.info(f"The raw {index} was a wrong value and was extinguished.")
-                # delete the row where the maximum daily consumption is located
     self.data = self.data.drop(index)
 ```
 Here we say check with the *if* statement if the month is between Mai and October with `5 < month_peak_day < 10`.
@@ -80,6 +123,60 @@ Here we say check with the *if* statement if the month is between Mai and Octobe
 - If it is not between those months we will delete that consumption. Therefore the row (index) of the maximum daily consumption will be determined with `np.argmax()`.
   Afer getting the index the row with the maximum daily consumption will be deleted using `data.drop()`.
 
+## Ploting Daily consumption
+To see the raw data before the data gets checked on plausibility another class in `plausibility.py` is created.
+This class inherits from the class `Plausibility` as the arguments can be used again in this class. 
+In the function `plot_daily` first the user will be asked if he/she wants to see the plot of the raw data or not.
+With this the user can determine to plot the data or not.
+```python
+class PlotDaily(Plausibility):
+    def plot_daily(self):
+        plot_in = input("Should the Consumption in " + self.year + " be shown? (Please answer in yes/no)")
+```
+With the input of the user of **yes** or **no** the `plot_data` function from the `plotdata.py`is calles.
+Using the `if` statement the plot will be activated or not.
+```python
+if plot_in == "yes":
+            # plot data
+    plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]",
+                "Consumption[M3/day]", 10, "navy", True)
+    logging.info(f"The user input for {self.year} is yes.")
+elif plot_in == "no":
+            # not plotting the data
+    plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]",
+                "Consumption[M3/day]", 10, "navy", False)
+    logging.info(f"The user input for {self.year} =! yes.")
+return True
+```
+The `plot_data` function is written in the `plotdata.py`
+Here besides *pandas*, *numpy* and *matplotlib* are also needed.
+With all the needed parameters that are either already determined here or later if the function is called the figura of the plot is created.
+```python
+def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
+            x_label="", y_label="", size=10, color="", ask_plot=True):
+    fig, axis = plt.subplots(figsize=(15, 9))
+```
+With `axis.scatter` a scatter plot is created based on the arguments given.
+```python
+axis.scatter(x=date, y=consumption,
+            marker="o", s=size, color=color)
+```
+Using `axis.set` the labels of the axes as well as the title of the plot are determined.
+With `plot.xlim()` the limit of the x-axis is being determined and with `date.min()` and `date.max()` the limits are set to the minimum and maximum value of the data series of the x-axis.
+```python
+axis.set(xlabel=x_label, ylabel=y_label, title=title)
+plt.xlim(date.min(), date.max())
+plt.grid()
+```
+To give a better look where the maximum daily consumption (Qdmax) is located an arrow will be pointing on it.
+With `np.argmax()` the row/index of the maximum consumption can be determined.
+So, it can be used in the `axis.annotate` and `arrowprops` to locate where the arrow should point.
+```python
+index = np.argmax(consumption)
+y_max = consumption[index]
+x_max = date[index]
+axis.annotate('Qdmax', xy=(x_max, y_max), arrowprops=dict(facecolor='red'))
+```
 
 ## Calculating the 3 categories
 For calculating the three categories *pandas* will be needed again. 
@@ -236,7 +333,6 @@ If the user is giving something not given as an option an error message will be 
 First it will be asked in what category the area is grouped as a residence, commercial and industrial are have a different water volume for fire fighting.
 ```python
 def category_2(self):
-        # the while True checks, if the input is correct
     area = 0
     print('Is the supplied area a residence (1), a commercial (2) or a industrial (3) area?')
     while True:
@@ -314,11 +410,9 @@ First if the number of stories are less than **3** the fire volume depending of 
 ```python
 if floors_number <= 3:
     logging.info(f"The user input for floors number is {floors_number}.")
-                # Getting the risks of a fire spread
     spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
                         "\nIf you do not know, ask the responsible fire department. ")
 
-                # The while funktion checks, if the input is correct.
     while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
         spread_risk = input("This is neither 'small', 'medium', or 'high'."
                             "\nPlease check the risk of fire spread and insert on of the three terms. ")

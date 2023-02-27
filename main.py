@@ -9,7 +9,7 @@ data_raw_2018 = pd.read_excel(r'data\\Consumption_2018.xlsx')
 data_raw_2019 = pd.read_excel(r'data\\Consumption_2019.xlsx')
 
 
-print("The algorythm will calculate, if the given tank is big enough for the given outflow data,"
+print("This algorithm will calculate, if the given tank is big enough for the given outflow data,"
       "\nregarding the German law for water supply facilities.")
 
 if __name__ == '__main__':
