@@ -1,20 +1,27 @@
-2023-02-27 19:40:30,839 - INFO - The user input for 2017 =! yes.
-2023-02-27 19:40:30,841 - INFO - The raw 106 was a wrong value and was extinguished.
-2023-02-27 19:40:30,843 - INFO - The raw 105 was a wrong value and was extinguished.
-2023-02-27 19:40:30,844 - INFO - The raw 104 was a wrong value and was extinguished.
-2023-02-27 19:40:30,998 - INFO - The user input for 2017 is yes.
-2023-02-27 19:40:30,999 - INFO - The plausibility check for the consumption in 2017 successfully ran.
-2023-02-27 19:40:32,837 - INFO - The user input for 2018 =! yes.
-2023-02-27 19:40:32,902 - INFO - The user input for 2018 is yes.
-2023-02-27 19:40:32,903 - INFO - The plausibility check for the consumption in 2018 successfully ran.
-2023-02-27 19:40:34,966 - INFO - The user input for 2019 =! yes.
-2023-02-27 19:40:35,031 - INFO - The user input for 2019 is yes.
-2023-02-27 19:40:35,032 - INFO - The plausibility check for the consumption in 2019 successfully ran.
-2023-02-27 19:40:40,605 - INFO - The user input for the length is 5.
-2023-02-27 19:40:41,894 - INFO - The user input for the width is 10.
-2023-02-27 19:40:41,894 - INFO - The calculated area for the tank is 50 m^2.
-2023-02-27 19:40:45,673 - INFO - The user input for the volume of the tank is 500.
-2023-02-27 19:40:45,811 - INFO - The outflow data are properly loaded into the system.
-2023-02-27 19:40:45,811 - INFO - The max. amount of outflow is 229.
-2023-02-27 19:40:45,811 - INFO - The category 1 is 114.5.
-2023-02-27 19:40:55,664 - INFO - The user input for floors number is -1.
+2023-02-27 21:20:01,687 - INFO - The user input for 2017 =! yes.
+2023-02-27 21:20:01,688 - INFO - The raw 106 was a wrong value and was extinguished.
+2023-02-27 21:20:01,690 - INFO - The raw 105 was a wrong value and was extinguished.
+2023-02-27 21:20:01,691 - INFO - The raw 104 was a wrong value and was extinguished.
+2023-02-27 21:20:01,808 - INFO - The user input for 2017 is yes.
+2023-02-27 21:20:01,809 - INFO - The plausibility check for the consumption in 2017 successfully ran.
+2023-02-27 21:20:02,591 - INFO - The user input for 2018 =! yes.
+2023-02-27 21:20:02,656 - INFO - The user input for 2018 is yes.
+2023-02-27 21:20:02,657 - INFO - The plausibility check for the consumption in 2018 successfully ran.
+2023-02-27 21:20:03,671 - INFO - The user input for 2019 =! yes.
+2023-02-27 21:20:03,735 - INFO - The user input for 2019 is yes.
+2023-02-27 21:20:03,736 - INFO - The plausibility check for the consumption in 2019 successfully ran.
+2023-02-27 21:20:05,674 - INFO - The user input for the length is 5.
+2023-02-27 21:20:07,250 - INFO - The user input for the width is 100.
+2023-02-27 21:20:07,250 - INFO - The calculated area for the tank is 500 m^2.
+2023-02-27 21:20:11,213 - INFO - The user input for the volume of the tank is 3000.
+2023-02-27 21:20:11,310 - INFO - The outflow data are properly loaded into the system.
+2023-02-27 21:20:11,311 - INFO - The max. amount of outflow is 229.
+2023-02-27 21:20:11,311 - INFO - The category 1 is 114.5.
+2023-02-27 21:20:23,604 - INFO - The user input for the area is a 3.
+2023-02-27 21:20:23,605 - INFO - The user input for the risk of a fire spread is small.
+2023-02-27 21:20:24,488 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-27 21:20:25,304 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-27 21:20:26,076 - INFO - The q_fluc is 527 m^3.
+2023-02-27 21:20:26,076 - INFO - The q_min is 250.0 m^3.
+2023-02-27 21:20:26,076 - INFO - The criteria_3 is 777.0 m^3.
+2023-02-27 21:20:26,077 - INFO - The given tank is big enough.
