@@ -1,1 +1,6 @@
-2023-02-27 11:47:51,349 - INFO - The user input for 2014 is yes.
+2023-02-27 16:18:19,391 - INFO - The raw 106 was a wrong value and was extinguished.
+2023-02-27 16:18:19,393 - INFO - The raw 105 was a wrong value and was extinguished.
+2023-02-27 16:18:19,394 - INFO - The raw 104 was a wrong value and was extinguished.
+2023-02-27 16:18:19,499 - INFO - The user input for 2014 is yes.
+2023-02-27 16:18:19,499 - INFO - The plausibility check for the consumption in 2014 successfully ran.
+2023-02-27 16:18:31,558 - INFO - The user input for 2014 is yes.
