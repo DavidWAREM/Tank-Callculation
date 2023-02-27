@@ -17,9 +17,15 @@ water tank on a peak day a new needed volume should be determined.
 
 ## Data Import
 Using *pandas* the daily consumption of the area will be imported.
+Also the user is been asked to give the length, the width and the volume of the water tank.
 
 ## Plausibility check
+The plausibility check valuates, of the days with the maximum consumption are realistic. From engineering experience, the day with the highest consumption have to be in the summer time due to higher water consumption in this period. The plausibility check evaluates for every given year, if the day with the highest outflow is in summer or winter. If it is in summer, the value gets deleted. After that the code saves the new data in a new .xlcx file, so it can be imported again.
+
 
 ## Calculating the 3 categories
+The plausibility check valuates, of the days with the maximum consumption are realistic. From engineering experience, the day with the highest consumption have to be in the summer time due to higher water consumption in this period. The plausibility check evaluates for every given year, if the day with the highest outflow is in summer or winter. If it is in summer, the value gets deleted. After that the code saves the new data in a new .xlcx file, so it can be imported again.
 
-## Evaluating the current volume
+
+## Final Calculation
+In the final calculation the codes first compares the highest tank volume demand of the three categories and takes the biggest one. After that, the biggest demanded volume is compared to the given volume of the real water tank. The user gets a message if the water tank volume is big enough.
