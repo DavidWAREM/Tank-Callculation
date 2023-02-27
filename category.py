@@ -103,36 +103,24 @@ class Tank:
 
     def category_1(self):
         # Import the Data after the plausibility check from Excel Sheets using Dataframe, Repeat for all years
-        data_2014 = pd.read_excel(r'data\\Plausible_Consumption_2014.xlsx')
-        data_2015 = pd.read_excel(r'data\\Plausible_Consumption_2015.xlsx')
-        data_2016 = pd.read_excel(r'data\\Plausible_Consumption_2016.xlsx')
         data_2017 = pd.read_excel(r'data\\Plausible_Consumption_2017.xlsx')
         data_2018 = pd.read_excel(r'data\\Plausible_Consumption_2018.xlsx')
         data_2019 = pd.read_excel(r'data\\Plausible_Consumption_2019.xlsx')
         logging.info("The outflow data are properly loaded into the system.")
 
         data = list()
-        data.append(data_2014)
-        data.append(data_2015)
-        data.append(data_2016)
         data.append(data_2017)
         data.append(data_2018)
         data.append(data_2019)
 
         # The Excel Sheets have two Columns - Date and Consumption
         # Now we shall find the Maximum Value from Consumption Column for each year
-        data_2014_df_cons_max = data_2014['Consumption'].max()
-        data_2015_df_cons_max = data_2015['Consumption'].max()
-        data_2016_df_cons_max = data_2016['Consumption'].max()
         data_2017_df_cons_max = data_2017['Consumption'].max()
         data_2018_df_cons_max = data_2018['Consumption'].max()
         data_2019_df_cons_max = data_2019['Consumption'].max()
 
         # Create an Array of list Containing all Maximum Values from above
         my_data = list()
-        my_data.append(data_2014_df_cons_max)
-        my_data.append(data_2015_df_cons_max)
-        my_data.append(data_2016_df_cons_max)
         my_data.append(data_2017_df_cons_max)
         my_data.append(data_2018_df_cons_max)
         my_data.append(data_2019_df_cons_max)
@@ -151,10 +139,10 @@ class Tank:
     def category_2(self):
         # the while True checks, if the input is correct
         area = 0
-        print('Is the supplied area a residual (1), a commercial (2) or a industrial (3) area?')
+        print('Is the supplied area a residence (1), a commercial (2) or a industrial (3) area?')
         while True:
             try:
-                area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
+                area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
             except ValueError:
                 print("Wrong input, that is not one of the given options.")
                 logging.exception("User input for area is not a number.")
@@ -168,7 +156,7 @@ class Tank:
             logging.error("User input for area == 0.")
             while True:
                 try:
-                    area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
+                    area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
                 except ValueError:
                     print("Wrong input, that is not one of the given options.")
                     logging.exception("User input for area is not a number.")
@@ -182,7 +170,7 @@ class Tank:
             logging.error("User input for area >= 4.")
             while True:
                 try:
-                    area = int(input("Please insert 1 for residual, 2 for commercial and 3 for industrial area: "))
+                    area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
                 except ValueError:
                     print("Wrong input, that is not one of the given options.")
                     logging.exception("User input for area is not a number.")

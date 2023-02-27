@@ -27,7 +27,7 @@ data_2019 = pd.read_excel(r'data\\Consumption_2019.xlsx')
 
 ## Plausibility check
 In `plausibility.py` the plausibility of the data will be checked. 
-Here a class is defined, where two arguments *data* and *year* are defined.
+Here a class `Plausbility` is defined, where two arguments *data* and *year* are defined.
 Here the libraries *pandas* and *numpy* are needed.
 ```python
 import pandas as pd
@@ -82,6 +82,275 @@ Here we say check with the *if* statement if the month is between Mai and Octobe
 
 
 ## Calculating the 3 categories
-For calculating the 
+For calculating the three categories *pandas* will be needed again. 
+Here in `category.py` the class `Tank` is defined. In the `__init__`the variables used in this class are called.
+```python
+class Tank:
+    def __init__(self):
+        self.length = 0
+        self.width = 0
+        self.floor_area = 0
+        self.volume = 0
+        self.qdmax = 0
+        self.criteria_1 = 0
+        self.criteria_2 = 0
+        self.criteria_3 = 0
+```
+These variables are given the value 0 for now. In the following they will be defined through inputs.
 
+First the measurements of the tank are needed from the user.
+Therefore the function `tank_data` is defined.
+```python
+def tank_data(self):
+    print("\nFirst you need to name the size of your tank.")
+```
+The length will be defined through an input of the user. This is achieved through `length = int(input())`
+If the input is 0 or less than 0 an error message will be given as the length of the tank can not be 0 or even negative.
+```python
+while True:
+    try:
+        self.length = int(input("Please insert the length of the tank in meter. "))
+    except ValueError:
+        print("Wrong input.")
+        logging.exception("The input for the tank length is wrong.")
+        continue
+    else:
+        break
+
+while self.length <= 0:
+    print("Wrong input, the length can not be 0 or less.")
+    logging.error("User input for length <= 0.")
+    while True:
+        try:
+            self.length = int(input("Please insert the length of the tank in meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank length is wrong.")
+            continue
+        else:
+            break
+```
+
+The same thing will be done for the width using `width = int(input())`.
+here there will come an error too if the input is 0 or negative.
+```python
+while True:
+    try:
+        self.width = int(input("Please insert the width of the tank in meter. "))
+    except ValueError:
+        print("Wrong input.")
+        logging.exception("The input for the tank width is wrong.")
+        continue
+    else:
+        break
+
+while self.width <= 0:
+    print("Wrong input, the width can not be 0 or less.")
+    logging.error("User input for width <= 0.")
+    while True:
+        try:
+            self.width = int(input("Please insert the width of the tank in meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank width is wrong.")
+            continue
+        else:
+            break
+```
+As for the categories the floor area is needed, it is being calculated by multiplying the length and width input.
+```python
+self.floor_area = self.width * self.length
+        logging.info(f"The calculated area for the tank is {self.floor_area} m^2.")
+```
+One last measurement of the tank that is needed is the volume of tank for the final comparison of the calculated volume with the actual volume.
+Therefore using `int(input())` the volume is asked for.
+```python
+while True:
+    try:
+        self.volume = int(input("Please insert the volume of the tank in cubic meter. "))
+    except ValueError:
+        print("Wrong input.")
+        logging.exception("The input for the tank volume is wrong.")
+        continue
+    else:
+        break
+
+while self.volume <= 0:
+    print("Wrong input, the volume can not be 0 or less.")
+    logging.error("User input for volume <= 0.")
+    while True:
+        try:
+            self.volume = int(input("Please insert the volume of the tank in cubic meter. "))
+        except ValueError:
+            print("Wrong input.")
+            logging.exception("The input for the tank volume is wrong.")
+            continue
+        else:
+            break
+```
+
+Now each category will be calculated.
+1. Category 1
+
+As the raw data was already checked through the plausibility check we need to import the plausible data. Using *pandas* the data is imported.
+```python
+def category_1(self):
+    data_2017 = pd.read_excel(r'data\\Plausible_Consumption_2017.xlsx')
+    data_2018 = pd.read_excel(r'data\\Plausible_Consumption_2018.xlsx')
+    data_2019 = pd.read_excel(r'data\\Plausible_Consumption_2019.xlsx')
+```
+This will be put into a list
+```python
+data = list()
+    data.append(data_2017)
+    data.append(data_2018)
+    data.append(data_2019)
+```
+Now the maximum consumption of the plausible data are being determined using `data.max()` 
+```python
+data_2017_df_cons_max = data_2017['Consumption'].max()
+    data_2018_df_cons_max = data_2018['Consumption'].max()
+    data_2019_df_cons_max = data_2019['Consumption'].max()
+```
+These maximum consumption of the years are being put into a list using `list()`
+```python
+my_data = list()
+    my_data.append(data_2017_df_cons_max)
+    my_data.append(data_2018_df_cons_max)
+    my_data.append(data_2019_df_cons_max)
+```
+As for the first criteria the highest daily consumption is needed. Now the highest daily consumption of the past years can be determined with `max()`.
+Then the volume of the first criteria can be calculated with multiplying the highest daily consumption with `0.5`.
+```python
+self.qdmax = max(my_data)
+self.criteria_1 = 0.5 * self.qdmax
+print(f"Criteria 1 = {self.criteria_1} m^3")
+```
+2. Category 2
+
+For the second criteria the water volume in case of fire needs to be calculated.
+Here several informations are needed to determine the fire volume. 
+The informations needed are given as a choice for the user to choose.
+If the user is giving something not given as an option an error message will be given.
+
+First it will be asked in what category the area is grouped as a residence, commercial and industrial are have a different water volume for fire fighting.
+```python
+def category_2(self):
+        # the while True checks, if the input is correct
+    area = 0
+    print('Is the supplied area a residence (1), a commercial (2) or a industrial (3) area?')
+    while True:
+        try:
+            area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
+        except ValueError:
+            print("Wrong input, that is not one of the given options.")
+            logging.exception("User input for area is not a number.")
+            continue
+        else:
+            break
+```
+If the input is not one of the options **(1,2,3)** then these error messages will be given.
+```python
+while area == 0:
+    print("Wrong input, that is not one of the given options.")
+    logging.error("User input for area == 0.")
+    while True:
+        try:
+            area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
+        except ValueError:
+            print("Wrong input, that is not one of the given options.")
+            logging.exception("User input for area is not a number.")
+            continue
+        else:
+            break
+
+while area >= 4:
+    print("Wrong input, that is not one of the given options.")
+    logging.error("User input for area >= 4.")
+    while True:
+        try:
+            area = int(input("Please insert 1 for residence, 2 for commercial and 3 for industrial area: "))
+        except ValueError:
+            print("Wrong input, that is not one of the given options.")
+            logging.exception("User input for area is not a number.")
+            continue
+        else:
+            break
+```
+If the input is correct and the first option is selected **residence (1)** there is another information needed.
+The number of stories of the highest building in the area is needed. Therefore another `int(input())` is needed.
+```python
+if area == 1:
+    print("What is the maximum number of floors in the area? ")
+    while True:
+        try:
+            floors_number = int(input("Please insert a number: "))
+        except ValueError:
+            print("Wrong input!")
+            logging.exception("User input for floor is not a number.")
+            continue
+        else:
+            break
+```
+Here as well an error message will come if the input is wrong.
+```python
+while floors_number == 0:
+    print("Wrong input, if the floor number is '0', there would be no building.")
+    logging.error("User input for floor number == 0.")
+    while True:
+        try:
+            floors_number = int(input("Please insert a number: "))
+        except ValueError:
+            print("Wrong input!")
+            logging.exception("User input for floor number is not a number.")
+            continue
+        else:
+            break
+```
+With an *if* statement now all the scenarios are being gone through.
+In each scenario one more input is needed. THe spread risk of the fire should be either **small**, **medium** or **high**.
+
+First if the number of stories are less than **3** the fire volume depending of the spread risk will be either **48 m³** or **96 m³**.
+```python
+if floors_number <= 3:
+    logging.info(f"The user input for floors number is {floors_number}.")
+                # Getting the risks of a fire spread
+    spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
+                        "\nIf you do not know, ask the responsible fire department. ")
+
+                # The while funktion checks, if the input is correct.
+    while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
+        spread_risk = input("This is neither 'small', 'medium', or 'high'."
+                            "\nPlease check the risk of fire spread and insert on of the three terms. ")
+        logging.error("The input for the fire risk is neither small, medium or high.")
+
+    if spread_risk == "small":
+        v_fire = 2 * 48
+    if spread_risk == "medium":
+        v_fire = 2 * 96
+    if spread_risk == "high":
+        v_fire = 2 * 96
+```
+If the stories are higher than **3** then the fire volume will be either **96 m³** or **192 m³**.
+```python
+else:
+    logging.info(f"The user input for floors number is {floors_number}.")
+    spread_risk = input("Is the risk of fire spread in the area small, medium or high?"
+                        "\nIf you do not know, ask the responsible fire department. ")
+
+    while spread_risk != "small" and spread_risk != "medium" and spread_risk != "high":
+        spread_risk = input("This is neither 'small', 'medium', or 'high'."
+                            "\nPlease check the risk of fire spread and insert on of the three terms. ")
+        logging.error("The input for the fire risk is neither small, medium or high.")
+
+    if spread_risk == "small":
+        v_fire = 2 * 96
+    if spread_risk == "medium":
+        v_fire = 2 * 96
+    if spread_risk == "high":
+        v_fire = 2 * 192
+```
+For the 
+
+3. Category 3
 ## Evaluating the current volume
