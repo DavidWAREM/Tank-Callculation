@@ -1,6 +1,12 @@
-2023-02-27 16:18:19,391 - INFO - The raw 106 was a wrong value and was extinguished.
-2023-02-27 16:18:19,393 - INFO - The raw 105 was a wrong value and was extinguished.
-2023-02-27 16:18:19,394 - INFO - The raw 104 was a wrong value and was extinguished.
-2023-02-27 16:18:19,499 - INFO - The user input for 2014 is yes.
-2023-02-27 16:18:19,499 - INFO - The plausibility check for the consumption in 2014 successfully ran.
-2023-02-27 16:18:31,558 - INFO - The user input for 2014 is yes.
+2023-02-27 17:58:53,058 - INFO - The user input for 2017 =! yes.
+2023-02-27 17:58:53,060 - INFO - The raw 106 was a wrong value and was extinguished.
+2023-02-27 17:58:53,062 - INFO - The raw 105 was a wrong value and was extinguished.
+2023-02-27 17:58:53,064 - INFO - The raw 104 was a wrong value and was extinguished.
+2023-02-27 17:58:53,164 - INFO - The user input for 2017 is yes.
+2023-02-27 17:58:53,165 - INFO - The plausibility check for the consumption in 2017 successfully ran.
+2023-02-27 17:58:54,526 - INFO - The user input for 2018 =! yes.
+2023-02-27 17:58:54,589 - INFO - The user input for 2018 is yes.
+2023-02-27 17:58:54,590 - INFO - The plausibility check for the consumption in 2018 successfully ran.
+2023-02-27 17:58:55,876 - INFO - The user input for 2019 =! yes.
+2023-02-27 17:58:55,945 - INFO - The user input for 2019 is yes.
+2023-02-27 17:58:55,946 - INFO - The plausibility check for the consumption in 2019 successfully ran.

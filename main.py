@@ -1,5 +1,5 @@
 import pandas as pd
-from plausibility import *
+from plausibility import Plausibility, PlotDaily
 from fun import *
 from category import Tank
 
@@ -14,18 +14,20 @@ print("The algorythm will calculate, if the given tank is big enough for the giv
 
 if __name__ == '__main__':
     start_logging()
+
     p_2017 = Plausibility(data_2017, "2017")
-    pl_2017 = PlotDaily(data_2017,"2017")
-    p_2018 = Plausibility(data_2018,"2018")
+    pl_2017 = PlotDaily(data_2017, "2017")
+    p_2018 = Plausibility(data_2018, "2018")
     pl_2018 = PlotDaily(data_2018, "2018")
     p_2019 = Plausibility(data_2019, "2019")
-    pl_2019 = PlotDaily(data_2019,"2019")
+    pl_2019 = PlotDaily(data_2019, "2019")
     pl_2017.plot_daily()
     p_2017.check_plausibility()
     pl_2018.plot_daily()
     p_2018.check_plausibility()
     pl_2019.plot_daily()
     p_2019.check_plausibility()
+
     my_tank = Tank()
     my_tank.tank_data()
     my_tank.category_1()

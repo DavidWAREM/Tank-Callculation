@@ -1,8 +1,6 @@
 import logging
-
 import pandas as pd
 from fun import *
-
 
 
 class Tank:
@@ -394,5 +392,5 @@ class Tank:
                   f"\nThe given volume was {self.volume} m^3.")
             print(f"The needed volume regarding this situation would be {criteria_max} m^3 from {max(criteria)}.")
             logging.info("The given tank is not big enough for the given situation.")
-            logging.info(f"The needed volume regarding this situation would be {criteria_max} m^3 from {max(criteria)}.")
-
+            logging.info(f"The needed volume regarding this situation would be {criteria_max} m^3"
+                         f" from {max(criteria)}.")
