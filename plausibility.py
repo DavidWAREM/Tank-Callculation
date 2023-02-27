@@ -5,69 +5,84 @@ from fun import *
 
 
 class Plausibility:
-    """Author: Graciella Bawole"""
-
-    def __init__(self, year):
-        self.year = year
-        self.loop = 1
-
-    def check_plausibility(self, data):
+    """
+    This class is defined for the plausibility check
+    """
+    def __init__(self, data, year):
         """
-        Plausibility function will check if the daily peak consumption in the data is located in summer or not.
-        If not it will delete that specific consumption and find the new peak
+        Define the parameters that will be used in the class.
         :param data: Data that has been read with pandas from the Excel file
         :param year: string To give the name of the file later on
+        """
+
+        self.data = data
+        self.year = year
+
+    def check_plausibility(self):
+        """
+        Plausibility function will check if the daily peak consumption in the data is located in summer or not.
+        If not it will delete that specific consumption until new daily peak is in summer. New Excel file without the
+        not plausible consumption will be created
         :return: always True
         """
-        #self.data = pd.read_excel(r'data\\Consumption_2014.xlsx')
-        # plot data to show if Qdmax is in summer or not
-        """plot_in = input("Should the Consumption in "+ self.year +" be shown? (Please answer in yes/no)")
-        if plot_in == "yes":
-            plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]",
-                    10, "navy",True)
-            logging.info(f"The user input for {self.year} is yes.")
-        elif plot_in == "no":
-            plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]",
-                    10,"navy", False)
-            logging.info(f"The user input for {self.year} =! yes.")"""
 
-        # while function to go through the Qdmax and see if it is in Summer
-        while self.loop > 0 :
+        # while statement to go through the Qdmax and see if it is in Summer
+        i = 1
+        while i > 0:
+
             # get the maximum consumption
-            data_cons_max = data['Consumption'].max()
+            data_cons_max = self.data['Consumption'].max()
+
             # get the date of the maximum consumption
-            date_cons_max = data['Date'][data['Consumption'] == data_cons_max]
+            date_cons_max = self.data['Date'][self.data['Consumption'] == data_cons_max]
+
             # get the month of the date of the maximum consumption
             date_peak_day = np.array(date_cons_max)
             month_peak_day = pd.to_datetime(date_peak_day).month
-            if month_peak_day > 5 and month_peak_day < 10:
-                self.loop = 0
-                data.to_excel("data\Plausible_Consumption_"+self.year+".xlsx", index=False)
+
+            # if statement to see if the month is a summer month or not
+            if 5 < month_peak_day < 10:
+                i = 0
+
+                # the plausible data will be exported into an Excel file
+                self.data.to_excel("data\\Plausible_Consumption_" + self.year + ".xlsx", index=False)
                 logging.info(f"The user input for {self.year} is yes.")
             else:
-                self.loop = 1
-                index = np.argmax(data['Consumption'])
+                i = 1
+
+                # get the index where the daily consumption is maximum
+                index = np.argmax(self.data['Consumption'])
                 logging.info(f"The raw {index} was a wrong value and was extinguished.")
-                data = data.drop(index)
+
+                # delete the row where the maximum daily consumption is located
+                self.data = self.data.drop(index)
         print("Plausibility check for the consumption in " + self.year + " successfully ran. The Qdmax is = " +
-            str(data_cons_max) + " m^3/d (" + date_cons_max.to_string(index=False) + ")")
+              str(data_cons_max) + " m^3/d (" + date_cons_max.to_string(index=False) + ")")
         logging.info(f"The plausibility check for the consumption in {self.year} successfully ran.")
         return True
 
+
 class PlotDaily(Plausibility):
-    """Author: Ashwini Rajashekhar Mudigoudar, Graciella Bawole"""
-    def plot_daily(self,data):
-        plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]",
-                  "Consumption[M3/day]",
-                  10, "navy", True)
-        plot_in = input("Should the Consumption in "+ self.year +" be shown? (Please answer in yes/no)")
+    def plot_daily(self):
+        """
+        Function will plot the data of the selected year if wanted.
+        :return: always True
+        """
+
+        # ask if the data should be plotted
+        plot_in = input("Should the Consumption in " + self.year + " be shown? (Please answer in yes/no)")
+
+        # if statement to let the plot be shown if wanted
         if plot_in == "yes":
-            plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]",
-                    10, "navy",True)
+
+            # plot data
+            plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]",
+                      "Consumption[M3/day]", 10, "navy", True)
             logging.info(f"The user input for {self.year} is yes.")
         elif plot_in == "no":
-            plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]", "Consumption[M3/day]",
-                    10,"navy", False)
+
+            # not plotting the data
+            plot_data(self.data['Date'], self.data['Consumption'], "Daily Consumption", "Date [year-month]",
+                      "Consumption[M3/day]", 10, "navy", False)
             logging.info(f"The user input for {self.year} =! yes.")
-
-
+        return True

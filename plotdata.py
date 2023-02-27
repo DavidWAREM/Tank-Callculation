@@ -3,8 +3,8 @@ import pandas as panda
 import numpy as np
 
 
-def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
-              x_label="", y_label="", size=10, color="", ask_plot=True):
+def plot_data(date=panda.Series(), consumption=panda.Series(), title_plot="",
+            x_label="", y_label="", size=10, color="", ask_plot=True):
     """
     Plot function will plot the selected data
     :param date: Series of the dates of the consumption
@@ -23,10 +23,10 @@ def plot_data(date=panda.Series(), consumption=panda.Series(), title="",
 
     # create a scatter plot
     axis.scatter(x=date, y=consumption,
-                 marker="o", s=size, color=color)
+                marker="o", s=size, color=color)
 
     # give both axes labels
-    axis.set(xlabel=x_label, ylabel=y_label, title=title)
+    axis.set(xlabel=x_label, ylabel=y_label, title=title_plot)
 
     # set the limits for the axes and show grid lines in plot
     plt.xlim(date.min(), date.max())
