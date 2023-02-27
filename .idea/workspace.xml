@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update 20:29">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plausibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/plausibility.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plotdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotdata.py" afterDir="false" />
-    </list>
+    <list default="true" id="11465836-f59d-4fa9-a7a8-e8be4de8a4da" name="Changes" comment="update 21:21" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677526159999</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update 21:17">
+      <created>1677529061426</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677529061426</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update 21:21">
+      <created>1677529314729</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677529314729</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -219,6 +227,8 @@
     <MESSAGE value="update 18:49" />
     <MESSAGE value="update 19:51" />
     <MESSAGE value="update 20:29" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20:29" />
+    <MESSAGE value="update 21:17" />
+    <MESSAGE value="update 21:21" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 21:21" />
   </component>
 </project>

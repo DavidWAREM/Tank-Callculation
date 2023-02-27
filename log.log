@@ -1,27 +1,29 @@
-2023-02-27 21:20:01,687 - INFO - The user input for 2017 =! yes.
-2023-02-27 21:20:01,688 - INFO - The raw 106 was a wrong value and was extinguished.
-2023-02-27 21:20:01,690 - INFO - The raw 105 was a wrong value and was extinguished.
-2023-02-27 21:20:01,691 - INFO - The raw 104 was a wrong value and was extinguished.
-2023-02-27 21:20:01,808 - INFO - The user input for 2017 is yes.
-2023-02-27 21:20:01,809 - INFO - The plausibility check for the consumption in 2017 successfully ran.
-2023-02-27 21:20:02,591 - INFO - The user input for 2018 =! yes.
-2023-02-27 21:20:02,656 - INFO - The user input for 2018 is yes.
-2023-02-27 21:20:02,657 - INFO - The plausibility check for the consumption in 2018 successfully ran.
-2023-02-27 21:20:03,671 - INFO - The user input for 2019 =! yes.
-2023-02-27 21:20:03,735 - INFO - The user input for 2019 is yes.
-2023-02-27 21:20:03,736 - INFO - The plausibility check for the consumption in 2019 successfully ran.
-2023-02-27 21:20:05,674 - INFO - The user input for the length is 5.
-2023-02-27 21:20:07,250 - INFO - The user input for the width is 100.
-2023-02-27 21:20:07,250 - INFO - The calculated area for the tank is 500 m^2.
-2023-02-27 21:20:11,213 - INFO - The user input for the volume of the tank is 3000.
-2023-02-27 21:20:11,310 - INFO - The outflow data are properly loaded into the system.
-2023-02-27 21:20:11,311 - INFO - The max. amount of outflow is 229.
-2023-02-27 21:20:11,311 - INFO - The category 1 is 114.5.
-2023-02-27 21:20:23,604 - INFO - The user input for the area is a 3.
-2023-02-27 21:20:23,605 - INFO - The user input for the risk of a fire spread is small.
-2023-02-27 21:20:24,488 - INFO - The hourly outflow data are properly loaded into the system.
-2023-02-27 21:20:25,304 - INFO - The hourly inflow data are properly loaded into the system.
-2023-02-27 21:20:26,076 - INFO - The q_fluc is 527 m^3.
-2023-02-27 21:20:26,076 - INFO - The q_min is 250.0 m^3.
-2023-02-27 21:20:26,076 - INFO - The criteria_3 is 777.0 m^3.
-2023-02-27 21:20:26,077 - INFO - The given tank is big enough.
+2023-02-27 21:23:35,338 - INFO - The user input for 2017 is yes.
+2023-02-27 21:23:35,341 - INFO - The raw 106 was a wrong value and was extinguished.
+2023-02-27 21:23:35,345 - INFO - The raw 105 was a wrong value and was extinguished.
+2023-02-27 21:23:35,349 - INFO - The raw 104 was a wrong value and was extinguished.
+2023-02-27 21:23:35,501 - INFO - The user input for 2017 is yes.
+2023-02-27 21:23:35,502 - INFO - The plausibility check for the consumption in 2017 successfully ran.
+2023-02-27 21:23:37,746 - INFO - The user input for 2018 =! yes.
+2023-02-27 21:23:37,823 - INFO - The user input for 2018 is yes.
+2023-02-27 21:23:37,824 - INFO - The plausibility check for the consumption in 2018 successfully ran.
+2023-02-27 21:23:38,870 - INFO - The user input for 2019 =! yes.
+2023-02-27 21:23:38,957 - INFO - The user input for 2019 is yes.
+2023-02-27 21:23:38,958 - INFO - The plausibility check for the consumption in 2019 successfully ran.
+2023-02-27 21:23:41,510 - INFO - The user input for the length is 50.
+2023-02-27 21:23:43,128 - INFO - The user input for the width is 100.
+2023-02-27 21:23:43,128 - INFO - The calculated area for the tank is 5000 m^2.
+2023-02-27 21:23:59,820 - INFO - The user input for the volume of the tank is 1000.
+2023-02-27 21:23:59,910 - INFO - The outflow data are properly loaded into the system.
+2023-02-27 21:23:59,911 - INFO - The max. amount of outflow is 229.
+2023-02-27 21:23:59,911 - INFO - The category 1 is 114.5.
+2023-02-27 21:24:11,220 - INFO - The user input for floors number is 4.
+2023-02-27 21:24:17,430 - INFO - The user input for the area is a 1.
+2023-02-27 21:24:17,431 - INFO - The user input for the risk of a fire spread is medium.
+2023-02-27 21:24:18,482 - INFO - The hourly outflow data are properly loaded into the system.
+2023-02-27 21:24:19,285 - INFO - The hourly inflow data are properly loaded into the system.
+2023-02-27 21:24:20,090 - INFO - The q_fluc is 527 m^3.
+2023-02-27 21:24:20,090 - INFO - The q_min is 2500.0 m^3.
+2023-02-27 21:24:20,090 - INFO - The criteria_3 is 3027.0 m^3.
+2023-02-27 21:24:20,091 - INFO - The given tank is not big enough for the given situation.
+2023-02-27 21:24:20,091 - INFO - The needed volume regarding this situation would be 3027.0 m^3 from Criteria 3, volume needed to maintain a minimum water level in the water tank.
