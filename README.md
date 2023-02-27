@@ -7,7 +7,7 @@
 >   ***Goals***: This package will determine if an existing water tank in a drinking water system has a compatible volume for the current water demand.
 > If not, a suitable volume will be given.
 
->   ***Requirements***: Python libraries: pandas and matplotlib 
+>   ***Requirements***: Python libraries: pandas, numpy, matplotlib, logging and matplotlib 
 
 ## Terminology
 As the demand of an area can change with time the needed volume of a water 
@@ -19,6 +19,8 @@ water tank on a peak day a new needed volume should be determined.
 Using *pandas* the daily consumption of the area will be imported.
 
 ## Plausibility check
+
+
 
 ## Calculating the 3 categories
 

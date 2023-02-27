@@ -5,6 +5,7 @@ from fun import *
 
 
 class Plausibility:
+    """Author: Graciella Bawole"""
 
     def __init__(self, year):
         self.year = year
@@ -54,6 +55,7 @@ class Plausibility:
         return True
 
 class PlotDaily(Plausibility):
+    """Author: Ashwini Rajashekhar Mudigoudar"""
     def plot_daily(self,data):
         plot_data(data['Date'], data['Consumption'], "Daily Consumption", "Date [year-month]",
                   "Consumption[M3/day]",

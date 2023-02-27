@@ -8,6 +8,7 @@ from fun import *
 class Tank:
     """
     This class inherent the algorithm for the calculation.
+    Author: David Mühlfeld
     """
 
     def __init__(self):
